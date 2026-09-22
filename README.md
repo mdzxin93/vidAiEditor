@@ -29,7 +29,59 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-blue.svg" alt="License"></a>
+  <a href="https://github.com/mdzxin93/RawEdites-"><img src="https://img.shields.io/badge/RawEdites--Production%20Engine-Active-success?style=flat-square" alt="Status"></a>
+  <a href="#before--after-showcase"><img src="https://img.shields.io/badge/Showcase-Sample%20Included-orange?style=flat-square" alt="Showcase"></a>
 </p>
+
+---
+
+## 🎬 Before & After Showcase
+
+This repository showcases the automated transformation of a raw talking-head clip into a punchy, vertical short with word-level animated pop captions, kinetic stat cards, and broadcast audio normalization.
+
+### 📊 Quick Comparison
+
+| Feature | 🔴 Raw Footage (`sample_raw.mp4`) | 🟢 Edited Master (`sample_edited.mp4`) |
+| :--- | :--- | :--- |
+| **Download / View** | [📂 Download Raw Clip (`media/sample/sample_raw.mp4`)](media/sample/sample_raw.mp4) | [🎬 Download Edited Short (`media/sample/sample_edited.mp4`)](media/sample/sample_edited.mp4) |
+| **Aspect Ratio** | 16:9 Landscape (3840x2160) | **9:16 Vertical Short (1080x1920)** |
+| **Captions** | None | **Word-level glowing pop-in captions (`scale(1.14)`)** |
+| **Motion Overlays** | None | **Glassmorphic floating stat & callout cards** |
+| **Audio Treatment** | Silent / Raw | **Studio narration + ambient bed normalized to -14 LUFS** |
+| **Color Grading** | Raw neutral profile | **Warm cinematic studio grade with enhanced contrast** |
+| **Pacing / Cuts** | Raw timing | **100% untouched pacing and original continuity** |
+
+---
+
+### 🖼️ Production Visual Previews
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%" align="center">
+        <strong>1. Speaker Intro Lower-Third / Header Badge</strong><br/>
+        <img src="media/sample/preview_speaker_intro.jpg" alt="Speaker Intro" width="360" />
+      </td>
+      <td width="50%" align="center">
+        <strong>2. Kinetic Stat Card ("90 MIN Peak Cycle")</strong><br/>
+        <img src="media/sample/preview_90min_stat.jpg" alt="90 Min Stat" width="360" />
+      </td>
+    </tr>
+    <tr>
+      <td width="50%" align="center">
+        <strong>3. Metric Alert Card ("-40% Throughput Drop")</strong><br/>
+        <img src="media/sample/preview_drop_stat.jpg" alt="40 Percent Drop Stat" width="360" />
+      </td>
+      <td width="50%" align="center">
+        <strong>4. Key Takeaway ("The Golden Protocol")</strong><br/>
+        <img src="media/sample/preview_golden_rule.jpg" alt="The Golden Protocol" width="360" />
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
 
 <p align="center">
   <a href="https://github.com/trending">

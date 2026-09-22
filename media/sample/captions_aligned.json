@@ -1,0 +1,248 @@
+[
+  {
+    "word": "Most",
+    "start": 0.5,
+    "end": 0.8,
+    "confidence": 0.874
+  },
+  {
+    "word": "people",
+    "start": 0.8,
+    "end": 1.1,
+    "confidence": 0.998
+  },
+  {
+    "word": "try",
+    "start": 1.1,
+    "end": 1.34,
+    "confidence": 0.996
+  },
+  {
+    "word": "to",
+    "start": 1.34,
+    "end": 1.44,
+    "confidence": 0.997
+  },
+  {
+    "word": "focus",
+    "start": 1.44,
+    "end": 1.74,
+    "confidence": 0.999
+  },
+  {
+    "word": "for",
+    "start": 1.74,
+    "end": 2.04,
+    "confidence": 0.987
+  },
+  {
+    "word": "8",
+    "start": 2.04,
+    "end": 2.34,
+    "confidence": 0.509
+  },
+  {
+    "word": "hours",
+    "start": 2.34,
+    "end": 2.6,
+    "confidence": 0.832
+  },
+  {
+    "word": "straight,",
+    "start": 2.6,
+    "end": 2.94,
+    "confidence": 0.987
+  },
+  {
+    "word": "but",
+    "start": 3.24,
+    "end": 3.62,
+    "confidence": 0.994
+  },
+  {
+    "word": "high",
+    "start": 3.62,
+    "end": 3.84,
+    "confidence": 0.643
+  },
+  {
+    "word": "performers",
+    "start": 3.84,
+    "end": 4.32,
+    "confidence": 0.813
+  },
+  {
+    "word": "work",
+    "start": 4.32,
+    "end": 4.7,
+    "confidence": 0.996
+  },
+  {
+    "word": "in",
+    "start": 4.7,
+    "end": 4.98,
+    "confidence": 0.994
+  },
+  {
+    "word": "90",
+    "start": 4.98,
+    "end": 5.42,
+    "confidence": 0.991
+  },
+  {
+    "word": "-minute",
+    "start": 5.42,
+    "end": 5.78,
+    "confidence": 0.721
+  },
+  {
+    "word": "all",
+    "start": 5.78,
+    "end": 5.92,
+    "confidence": 0.208
+  },
+  {
+    "word": "-tradient",
+    "start": 5.92,
+    "end": 6.3,
+    "confidence": 0.492
+  },
+  {
+    "word": "cycles.",
+    "start": 6.3,
+    "end": 6.72,
+    "confidence": 0.988
+  },
+  {
+    "word": "After",
+    "start": 7.44,
+    "end": 7.7,
+    "confidence": 0.977
+  },
+  {
+    "word": "90",
+    "start": 7.7,
+    "end": 8.06,
+    "confidence": 0.985
+  },
+  {
+    "word": "minutes,",
+    "start": 8.06,
+    "end": 8.48,
+    "confidence": 0.973
+  },
+  {
+    "word": "cognitive",
+    "start": 8.88,
+    "end": 9.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "throughput",
+    "start": 9.2,
+    "end": 9.86,
+    "confidence": 0.952
+  },
+  {
+    "word": "drops",
+    "start": 9.86,
+    "end": 10.26,
+    "confidence": 0.995
+  },
+  {
+    "word": "by",
+    "start": 10.26,
+    "end": 10.58,
+    "confidence": 0.997
+  },
+  {
+    "word": "over",
+    "start": 10.58,
+    "end": 10.92,
+    "confidence": 0.976
+  },
+  {
+    "word": "40%.",
+    "start": 10.92,
+    "end": 11.92,
+    "confidence": 0.856
+  },
+  {
+    "word": "If",
+    "start": 11.92,
+    "end": 12.38,
+    "confidence": 0.995
+  },
+  {
+    "word": "you",
+    "start": 12.38,
+    "end": 12.48,
+    "confidence": 0.999
+  },
+  {
+    "word": "want",
+    "start": 12.48,
+    "end": 12.62,
+    "confidence": 0.998
+  },
+  {
+    "word": "peak",
+    "start": 12.62,
+    "end": 12.8,
+    "confidence": 0.97
+  },
+  {
+    "word": "output,",
+    "start": 12.8,
+    "end": 13.18,
+    "confidence": 0.998
+  },
+  {
+    "word": "protect",
+    "start": 13.74,
+    "end": 14.0,
+    "confidence": 0.982
+  },
+  {
+    "word": "the",
+    "start": 14.0,
+    "end": 14.3,
+    "confidence": 0.996
+  },
+  {
+    "word": "first",
+    "start": 14.3,
+    "end": 14.58,
+    "confidence": 0.994
+  },
+  {
+    "word": "90",
+    "start": 14.58,
+    "end": 15.12,
+    "confidence": 0.996
+  },
+  {
+    "word": "minutes",
+    "start": 15.12,
+    "end": 15.42,
+    "confidence": 0.99
+  },
+  {
+    "word": "of",
+    "start": 15.42,
+    "end": 15.64,
+    "confidence": 0.999
+  },
+  {
+    "word": "your",
+    "start": 15.64,
+    "end": 15.74,
+    "confidence": 0.994
+  },
+  {
+    "word": "day.",
+    "start": 15.74,
+    "end": 15.94,
+    "confidence": 0.999
+  }
+]

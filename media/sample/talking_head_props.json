@@ -1,0 +1,314 @@
+{
+  "videoSrc": "base_clip.mp4",
+  "captions": [
+    {
+      "word": "Most",
+      "startMs": 500,
+      "endMs": 800,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "people",
+      "startMs": 800,
+      "endMs": 1100,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "try",
+      "startMs": 1100,
+      "endMs": 1340,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "to",
+      "startMs": 1340,
+      "endMs": 1440,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "focus",
+      "startMs": 1440,
+      "endMs": 1740,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "for",
+      "startMs": 1740,
+      "endMs": 2040,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "8",
+      "startMs": 2040,
+      "endMs": 2340,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "hours",
+      "startMs": 2340,
+      "endMs": 2600,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "straight,",
+      "startMs": 2600,
+      "endMs": 2940,
+      "pageBreakAfter": true
+    },
+    {
+      "word": "but",
+      "startMs": 3240,
+      "endMs": 3620,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "high",
+      "startMs": 3620,
+      "endMs": 3840,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "performers",
+      "startMs": 3840,
+      "endMs": 4320,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "work",
+      "startMs": 4320,
+      "endMs": 4700,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "in",
+      "startMs": 4700,
+      "endMs": 4980,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "90",
+      "startMs": 4980,
+      "endMs": 5420,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "-minute",
+      "startMs": 5420,
+      "endMs": 5780,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "all",
+      "startMs": 5780,
+      "endMs": 5920,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "-tradient",
+      "startMs": 5920,
+      "endMs": 6300,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "cycles.",
+      "startMs": 6300,
+      "endMs": 6720,
+      "pageBreakAfter": true
+    },
+    {
+      "word": "After",
+      "startMs": 7440,
+      "endMs": 7700,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "90",
+      "startMs": 7700,
+      "endMs": 8060,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "minutes,",
+      "startMs": 8060,
+      "endMs": 8480,
+      "pageBreakAfter": true
+    },
+    {
+      "word": "cognitive",
+      "startMs": 8880,
+      "endMs": 9200,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "throughput",
+      "startMs": 9200,
+      "endMs": 9860,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "drops",
+      "startMs": 9860,
+      "endMs": 10260,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "by",
+      "startMs": 10260,
+      "endMs": 10580,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "over",
+      "startMs": 10580,
+      "endMs": 10920,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "40%.",
+      "startMs": 10920,
+      "endMs": 11920,
+      "pageBreakAfter": true
+    },
+    {
+      "word": "If",
+      "startMs": 11920,
+      "endMs": 12380,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "you",
+      "startMs": 12380,
+      "endMs": 12480,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "want",
+      "startMs": 12480,
+      "endMs": 12620,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "peak",
+      "startMs": 12620,
+      "endMs": 12800,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "output,",
+      "startMs": 12800,
+      "endMs": 13180,
+      "pageBreakAfter": true
+    },
+    {
+      "word": "protect",
+      "startMs": 13740,
+      "endMs": 14000,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "the",
+      "startMs": 14000,
+      "endMs": 14300,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "first",
+      "startMs": 14300,
+      "endMs": 14580,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "90",
+      "startMs": 14580,
+      "endMs": 15120,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "minutes",
+      "startMs": 15120,
+      "endMs": 15420,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "of",
+      "startMs": 15420,
+      "endMs": 15640,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "your",
+      "startMs": 15640,
+      "endMs": 15740,
+      "pageBreakAfter": false
+    },
+    {
+      "word": "day.",
+      "startMs": 15740,
+      "endMs": 15940,
+      "pageBreakAfter": true
+    }
+  ],
+  "overlays": [
+    {
+      "id": "speaker-intro",
+      "type": "callout",
+      "title": "DR. ELENA VANCE",
+      "text": "Cognitive Neuroscientist",
+      "callout_type": "info",
+      "position": "upper_third",
+      "in_seconds": 0.4,
+      "out_seconds": 4.2,
+      "titleFontSize": 32,
+      "fontSize": 24,
+      "accentColor": "#38BDF8",
+      "color": "#F8FAFC",
+      "backgroundColor": "rgba(15, 23, 42, 0.90)"
+    },
+    {
+      "id": "focus-cycle-stat",
+      "type": "stat_card",
+      "stat": "90 MIN",
+      "subtitle": "Ultradian Biological Peak Focus Cycle",
+      "statFontSize": 72,
+      "subtitleFontSize": 24,
+      "accentColor": "#F59E0B",
+      "backgroundColor": "rgba(15, 23, 42, 0.90)",
+      "position": "upper_third",
+      "in_seconds": 4.5,
+      "out_seconds": 9.2
+    },
+    {
+      "id": "throughput-drop-stat",
+      "type": "stat_card",
+      "stat": "-40% DROP",
+      "subtitle": "Cognitive Throughput Past 90 Mins",
+      "statFontSize": 72,
+      "subtitleFontSize": 24,
+      "accentColor": "#EF4444",
+      "backgroundColor": "rgba(15, 23, 42, 0.92)",
+      "position": "upper_third",
+      "in_seconds": 9.5,
+      "out_seconds": 14.2
+    },
+    {
+      "id": "golden-rule-tip",
+      "type": "callout",
+      "title": "THE GOLDEN PROTOCOL",
+      "text": "Protect the first 90 minutes of your morning for deep work.",
+      "callout_type": "tip",
+      "titleFontSize": 32,
+      "fontSize": 24,
+      "accentColor": "#10B981",
+      "backgroundColor": "rgba(15, 23, 42, 0.90)",
+      "color": "#F8FAFC",
+      "position": "upper_third",
+      "in_seconds": 14.5,
+      "out_seconds": 19.8
+    }
+  ],
+  "wordsPerPage": 3,
+  "fontSize": 52,
+  "highlightColor": "#FACC15",
+  "captionColor": "#FFFFFF",
+  "captionBackgroundColor": "rgba(10, 15, 30, 0.85)"
+}
