@@ -1,5 +1,6 @@
 import {
   AbsoluteFill,
+  Audio,
   OffthreadVideo,
   Sequence,
   interpolate,
@@ -62,6 +63,9 @@ export interface TalkingHeadOverlay {
   color?: string;
   accentColor?: string;
   fontSize?: number;
+  statFontSize?: number;
+  subtitleFontSize?: number;
+  titleFontSize?: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -71,28 +75,28 @@ export interface TalkingHeadOverlay {
 const POSITION_STYLES: Record<string, React.CSSProperties> = {
   lower_third: {
     position: "absolute",
-    bottom: 320, // Above caption area (~1600px)
-    left: 40,
-    right: 40,
-    height: 480,
+    top: 50,
+    left: 60,
+    right: 60,
+    height: 190,
   },
   upper_third: {
     position: "absolute",
-    top: 80,
-    left: 40,
-    right: 40,
-    height: 480,
+    top: 50,
+    left: 60,
+    right: 60,
+    height: 210,
   },
   left_panel: {
     position: "absolute",
-    top: 200,
+    top: 50,
     left: 40,
     width: 480,
     bottom: 400,
   },
   right_panel: {
     position: "absolute",
-    top: 200,
+    top: 50,
     right: 40,
     width: 480,
     bottom: 400,
@@ -132,6 +136,8 @@ const OverlayContent: React.FC<{ overlay: TalkingHeadOverlay }> = ({
         subtitle={overlay.subtitle}
         accentColor={overlay.accentColor}
         backgroundColor={bgColor}
+        statFontSize={overlay.statFontSize || 68}
+        subtitleFontSize={overlay.subtitleFontSize || 26}
       />
     );
   }
@@ -145,6 +151,8 @@ const OverlayContent: React.FC<{ overlay: TalkingHeadOverlay }> = ({
         backgroundColor={overlay.backgroundColor}
         textColor={overlay.color}
         containerBackgroundColor={bgColor}
+        fontSize={overlay.fontSize || 26}
+        titleFontSize={overlay.titleFontSize || 30}
       />
     );
   }
@@ -326,11 +334,12 @@ export const TalkingHead: React.FC<TalkingHeadProps> = ({
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      {/* Layer 1: Video background */}
+      {/* Layer 1: Video background & audio */}
       <OffthreadVideo
         src={resolveAsset(videoSrc)}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
+      <Audio src={resolveAsset(videoSrc)} />
 
       {/* Layer 2: Overlays (charts, stats, callouts, etc.) */}
       {overlays?.map((overlay, i) => {
@@ -357,6 +366,7 @@ export const TalkingHead: React.FC<TalkingHeadProps> = ({
         highlightColor={highlightColor}
         backgroundColor={captionBackgroundColor}
         color={captionColor}
+        paddingBottom={280}
         {...(captionFontFamily ? { fontFamily: captionFontFamily } : {})}
         {...(captionWordSeparator !== undefined ? { wordSeparator: captionWordSeparator } : {})}
       />
