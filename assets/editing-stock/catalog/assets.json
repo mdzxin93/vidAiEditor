@@ -1,0 +1,1053 @@
+{
+  "version": "2.0",
+  "asset_count": 58,
+  "assets": [
+    {
+      "id": "digital_products",
+      "kind": "illustration",
+      "path": "graphics/svg/digital_products.svg",
+      "preview": "graphics/png/digital_products.png",
+      "tags": [
+        "digital",
+        "product",
+        "online",
+        "course",
+        "software",
+        "sales"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "digital",
+        "product",
+        "online",
+        "course",
+        "software",
+        "sales"
+      ]
+    },
+    {
+      "id": "work_hours",
+      "kind": "illustration",
+      "path": "graphics/svg/work_hours.svg",
+      "preview": "graphics/png/work_hours.png",
+      "tags": [
+        "clock",
+        "hustle",
+        "hard",
+        "work",
+        "productivity",
+        "time"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "clock",
+        "hustle",
+        "hard",
+        "work",
+        "productivity",
+        "time"
+      ]
+    },
+    {
+      "id": "growth_chart",
+      "kind": "illustration",
+      "path": "graphics/svg/growth_chart.svg",
+      "preview": "graphics/png/growth_chart.png",
+      "tags": [
+        "growth",
+        "analytics",
+        "business",
+        "sales",
+        "data",
+        "marketing"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "growth",
+        "analytics",
+        "business",
+        "sales",
+        "data",
+        "marketing"
+      ]
+    },
+    {
+      "id": "money_revenue",
+      "kind": "illustration",
+      "path": "graphics/svg/money_revenue.svg",
+      "preview": "graphics/png/money_revenue.png",
+      "tags": [
+        "money",
+        "revenue",
+        "sales",
+        "earnings",
+        "profit"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "money",
+        "revenue",
+        "sales",
+        "earnings",
+        "profit"
+      ]
+    },
+    {
+      "id": "strategy",
+      "kind": "illustration",
+      "path": "graphics/svg/strategy.svg",
+      "preview": "graphics/png/strategy.png",
+      "tags": [
+        "strategy",
+        "planning",
+        "roadmap",
+        "goals"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "strategy",
+        "planning",
+        "roadmap",
+        "goals"
+      ]
+    },
+    {
+      "id": "social_content",
+      "kind": "illustration",
+      "path": "graphics/svg/social_content.svg",
+      "preview": "graphics/png/social_content.png",
+      "tags": [
+        "social",
+        "media",
+        "videos",
+        "content",
+        "creator",
+        "phone"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "social",
+        "media",
+        "videos",
+        "content",
+        "creator",
+        "phone"
+      ]
+    },
+    {
+      "id": "website_launch",
+      "kind": "illustration",
+      "path": "graphics/svg/website_launch.svg",
+      "preview": "graphics/png/website_launch.png",
+      "tags": [
+        "website",
+        "development",
+        "launch",
+        "technology"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "website",
+        "development",
+        "launch",
+        "technology"
+      ]
+    },
+    {
+      "id": "automation",
+      "kind": "illustration",
+      "path": "graphics/svg/automation.svg",
+      "preview": "graphics/png/automation.png",
+      "tags": [
+        "automation",
+        "ai",
+        "productivity",
+        "workflow"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "automation",
+        "ai",
+        "productivity",
+        "workflow"
+      ]
+    },
+    {
+      "id": "failure_results",
+      "kind": "illustration",
+      "path": "graphics/svg/failure_results.svg",
+      "preview": "graphics/png/failure_results.png",
+      "tags": [
+        "failure",
+        "results",
+        "struggle",
+        "setback"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "failure",
+        "results",
+        "struggle",
+        "setback"
+      ]
+    },
+    {
+      "id": "success",
+      "kind": "illustration",
+      "path": "graphics/svg/success.svg",
+      "preview": "graphics/png/success.png",
+      "tags": [
+        "success",
+        "milestone",
+        "win",
+        "business"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "success",
+        "milestone",
+        "win",
+        "business"
+      ]
+    },
+    {
+      "id": "idea",
+      "kind": "illustration",
+      "path": "graphics/svg/idea.svg",
+      "preview": "graphics/png/idea.png",
+      "tags": [
+        "idea",
+        "innovation",
+        "creative",
+        "thinking"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "idea",
+        "innovation",
+        "creative",
+        "thinking"
+      ]
+    },
+    {
+      "id": "audience",
+      "kind": "illustration",
+      "path": "graphics/svg/audience.svg",
+      "preview": "graphics/png/audience.png",
+      "tags": [
+        "audience",
+        "community",
+        "marketing",
+        "followers"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "audience",
+        "community",
+        "marketing",
+        "followers"
+      ]
+    },
+    {
+      "id": "grid_pan",
+      "kind": "motion_background",
+      "path": "broll/generated/grid_pan.mp4",
+      "tags": [
+        "grid",
+        "pan",
+        "animated",
+        "background",
+        "motion",
+        "transition"
+      ],
+      "license": "original_in_package",
+      "duration_seconds": 2,
+      "loopable": true
+    },
+    {
+      "id": "radial_pulse",
+      "kind": "motion_background",
+      "path": "broll/generated/radial_pulse.mp4",
+      "tags": [
+        "radial",
+        "pulse",
+        "animated",
+        "background",
+        "motion",
+        "transition"
+      ],
+      "license": "original_in_package",
+      "duration_seconds": 2,
+      "loopable": true
+    },
+    {
+      "id": "red_rays",
+      "kind": "motion_background",
+      "path": "broll/generated/red_rays.mp4",
+      "tags": [
+        "red",
+        "rays",
+        "animated",
+        "background",
+        "motion",
+        "transition"
+      ],
+      "license": "original_in_package",
+      "duration_seconds": 2,
+      "loopable": true
+    },
+    {
+      "id": "orbit_dots",
+      "kind": "motion_background",
+      "path": "broll/generated/orbit_dots.mp4",
+      "tags": [
+        "orbit",
+        "dots",
+        "animated",
+        "background",
+        "motion",
+        "transition"
+      ],
+      "license": "original_in_package",
+      "duration_seconds": 2,
+      "loopable": true
+    },
+    {
+      "id": "chart_rise",
+      "kind": "motion_background",
+      "path": "broll/generated/chart_rise.mp4",
+      "tags": [
+        "chart",
+        "rise",
+        "animated",
+        "background",
+        "motion",
+        "transition"
+      ],
+      "license": "original_in_package",
+      "duration_seconds": 2,
+      "loopable": true
+    },
+    {
+      "id": "speed_lines",
+      "kind": "motion_background",
+      "path": "broll/generated/speed_lines.mp4",
+      "tags": [
+        "speed",
+        "lines",
+        "animated",
+        "background",
+        "motion",
+        "transition"
+      ],
+      "license": "original_in_package",
+      "duration_seconds": 2,
+      "loopable": true
+    },
+    {
+      "id": "gradient_wave",
+      "kind": "motion_background",
+      "path": "broll/generated/gradient_wave.mp4",
+      "tags": [
+        "gradient",
+        "wave",
+        "animated",
+        "background",
+        "motion",
+        "transition"
+      ],
+      "license": "original_in_package",
+      "duration_seconds": 2,
+      "loopable": true
+    },
+    {
+      "id": "spotlight",
+      "kind": "motion_background",
+      "path": "broll/generated/spotlight.mp4",
+      "tags": [
+        "spotlight",
+        "animated",
+        "background",
+        "motion",
+        "transition"
+      ],
+      "license": "original_in_package",
+      "duration_seconds": 2,
+      "loopable": true
+    },
+    {
+      "id": "pop",
+      "kind": "sfx",
+      "path": "audio/sfx/pop.wav",
+      "tags": [
+        "pop",
+        "sound",
+        "accent",
+        "cut",
+        "motion"
+      ],
+      "license": "original_in_package"
+    },
+    {
+      "id": "whoosh",
+      "kind": "sfx",
+      "path": "audio/sfx/whoosh.wav",
+      "tags": [
+        "whoosh",
+        "sound",
+        "accent",
+        "cut",
+        "motion"
+      ],
+      "license": "original_in_package"
+    },
+    {
+      "id": "soft_click",
+      "kind": "sfx",
+      "path": "audio/sfx/soft_click.wav",
+      "tags": [
+        "soft_click",
+        "sound",
+        "accent",
+        "cut",
+        "motion"
+      ],
+      "license": "original_in_package"
+    },
+    {
+      "id": "impact",
+      "kind": "sfx",
+      "path": "audio/sfx/impact.wav",
+      "tags": [
+        "impact",
+        "sound",
+        "accent",
+        "cut",
+        "motion"
+      ],
+      "license": "original_in_package"
+    },
+    {
+      "id": "rise",
+      "kind": "sfx",
+      "path": "audio/sfx/rise.wav",
+      "tags": [
+        "rise",
+        "sound",
+        "accent",
+        "cut",
+        "motion"
+      ],
+      "license": "original_in_package"
+    },
+    {
+      "id": "tick",
+      "kind": "sfx",
+      "path": "audio/sfx/tick.wav",
+      "tags": [
+        "tick",
+        "sound",
+        "accent",
+        "cut",
+        "motion"
+      ],
+      "license": "original_in_package"
+    },
+    {
+      "id": "problem_solution",
+      "kind": "illustration",
+      "path": "graphics/svg/problem_solution.svg",
+      "preview": "graphics/png/problem_solution.png",
+      "tags": [
+        "problem",
+        "solution",
+        "fix",
+        "challenge",
+        "issue"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "problem",
+        "solution",
+        "fix",
+        "challenge",
+        "issue"
+      ]
+    },
+    {
+      "id": "checklist",
+      "kind": "illustration",
+      "path": "graphics/svg/checklist.svg",
+      "preview": "graphics/png/checklist.png",
+      "tags": [
+        "steps",
+        "checklist",
+        "process",
+        "plan",
+        "tasks"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "steps",
+        "checklist",
+        "process",
+        "plan",
+        "tasks"
+      ]
+    },
+    {
+      "id": "workflow",
+      "kind": "illustration",
+      "path": "graphics/svg/workflow.svg",
+      "preview": "graphics/png/workflow.png",
+      "tags": [
+        "workflow",
+        "process",
+        "pipeline",
+        "automation"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "workflow",
+        "process",
+        "pipeline",
+        "automation"
+      ]
+    },
+    {
+      "id": "phone_social",
+      "kind": "illustration",
+      "path": "graphics/svg/phone_social.svg",
+      "preview": "graphics/png/phone_social.png",
+      "tags": [
+        "phone",
+        "mobile",
+        "social",
+        "reels",
+        "shorts"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "phone",
+        "mobile",
+        "social",
+        "reels",
+        "shorts"
+      ]
+    },
+    {
+      "id": "funnel",
+      "kind": "illustration",
+      "path": "graphics/svg/funnel.svg",
+      "preview": "graphics/png/funnel.png",
+      "tags": [
+        "funnel",
+        "conversion",
+        "leads",
+        "sales"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "funnel",
+        "conversion",
+        "leads",
+        "sales"
+      ]
+    },
+    {
+      "id": "comparison",
+      "kind": "illustration",
+      "path": "graphics/svg/comparison.svg",
+      "preview": "graphics/png/comparison.png",
+      "tags": [
+        "versus",
+        "compare",
+        "before",
+        "after",
+        "difference"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "versus",
+        "compare",
+        "before",
+        "after",
+        "difference"
+      ]
+    },
+    {
+      "id": "rocket_launch",
+      "kind": "illustration",
+      "path": "graphics/svg/rocket_launch.svg",
+      "preview": "graphics/png/rocket_launch.png",
+      "tags": [
+        "launch",
+        "startup",
+        "ship",
+        "release"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "launch",
+        "startup",
+        "ship",
+        "release"
+      ]
+    },
+    {
+      "id": "ai_chip",
+      "kind": "illustration",
+      "path": "graphics/svg/ai_chip.svg",
+      "preview": "graphics/png/ai_chip.png",
+      "tags": [
+        "ai",
+        "artificial intelligence",
+        "model",
+        "machine learning"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "ai",
+        "artificial intelligence",
+        "model",
+        "machine learning"
+      ]
+    },
+    {
+      "id": "calendar",
+      "kind": "illustration",
+      "path": "graphics/svg/calendar.svg",
+      "preview": "graphics/png/calendar.png",
+      "tags": [
+        "schedule",
+        "calendar",
+        "deadline",
+        "daily"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "schedule",
+        "calendar",
+        "deadline",
+        "daily"
+      ]
+    },
+    {
+      "id": "target",
+      "kind": "illustration",
+      "path": "graphics/svg/target.svg",
+      "preview": "graphics/png/target.png",
+      "tags": [
+        "target",
+        "goal",
+        "objective",
+        "focus"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "target",
+        "goal",
+        "objective",
+        "focus"
+      ]
+    },
+    {
+      "id": "security",
+      "kind": "illustration",
+      "path": "graphics/svg/security.svg",
+      "preview": "graphics/png/security.png",
+      "tags": [
+        "privacy",
+        "security",
+        "protection",
+        "safe"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "privacy",
+        "security",
+        "protection",
+        "safe"
+      ]
+    },
+    {
+      "id": "cloud",
+      "kind": "illustration",
+      "path": "graphics/svg/cloud.svg",
+      "preview": "graphics/png/cloud.png",
+      "tags": [
+        "cloud",
+        "hosting",
+        "server",
+        "deployment"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "cloud",
+        "hosting",
+        "server",
+        "deployment"
+      ]
+    },
+    {
+      "id": "microphone",
+      "kind": "illustration",
+      "path": "graphics/svg/microphone.svg",
+      "preview": "graphics/png/microphone.png",
+      "tags": [
+        "podcast",
+        "audio",
+        "recording",
+        "voice"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "podcast",
+        "audio",
+        "recording",
+        "voice"
+      ]
+    },
+    {
+      "id": "team",
+      "kind": "illustration",
+      "path": "graphics/svg/team.svg",
+      "preview": "graphics/png/team.png",
+      "tags": [
+        "team",
+        "collaboration",
+        "meeting",
+        "people"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "team",
+        "collaboration",
+        "meeting",
+        "people"
+      ]
+    },
+    {
+      "id": "lightning",
+      "kind": "illustration",
+      "path": "graphics/svg/lightning.svg",
+      "preview": "graphics/png/lightning.png",
+      "tags": [
+        "fast",
+        "speed",
+        "quick",
+        "performance"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "fast",
+        "speed",
+        "quick",
+        "performance"
+      ]
+    },
+    {
+      "id": "book",
+      "kind": "illustration",
+      "path": "graphics/svg/book.svg",
+      "preview": "graphics/png/book.png",
+      "tags": [
+        "learn",
+        "education",
+        "knowledge",
+        "course"
+      ],
+      "style": "white_grid_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "learn",
+        "education",
+        "knowledge",
+        "course"
+      ]
+    },
+    {
+      "id": "grid_zoom",
+      "kind": "motion_graphic",
+      "path": "broll/generated/grid_zoom.mp4",
+      "tags": [
+        "grid zoom",
+        "motion",
+        "animated"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "grid",
+        "zoom"
+      ]
+    },
+    {
+      "id": "red_wipe",
+      "kind": "motion_graphic",
+      "path": "broll/generated/red_wipe.mp4",
+      "tags": [
+        "red wipe",
+        "motion",
+        "animated"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "red",
+        "wipe"
+      ]
+    },
+    {
+      "id": "split_reveal",
+      "kind": "motion_graphic",
+      "path": "broll/generated/split_reveal.mp4",
+      "tags": [
+        "split reveal",
+        "motion",
+        "animated"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "split",
+        "reveal"
+      ]
+    },
+    {
+      "id": "counter_numbers",
+      "kind": "motion_graphic",
+      "path": "broll/generated/counter_numbers.mp4",
+      "tags": [
+        "counter numbers",
+        "motion",
+        "animated"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "counter",
+        "numbers"
+      ]
+    },
+    {
+      "id": "orbit_nodes",
+      "kind": "motion_graphic",
+      "path": "broll/generated/orbit_nodes.mp4",
+      "tags": [
+        "orbit nodes",
+        "motion",
+        "animated"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "orbit",
+        "nodes"
+      ]
+    },
+    {
+      "id": "timeline_progress",
+      "kind": "motion_graphic",
+      "path": "broll/generated/timeline_progress.mp4",
+      "tags": [
+        "timeline progress",
+        "motion",
+        "animated"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "timeline",
+        "progress"
+      ]
+    },
+    {
+      "id": "focus_box",
+      "kind": "motion_graphic",
+      "path": "broll/generated/focus_box.mp4",
+      "tags": [
+        "focus box",
+        "motion",
+        "animated"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "focus",
+        "box"
+      ]
+    },
+    {
+      "id": "word_impact",
+      "kind": "motion_graphic",
+      "path": "broll/generated/word_impact.mp4",
+      "tags": [
+        "word impact",
+        "motion",
+        "animated"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "word",
+        "impact"
+      ]
+    },
+    {
+      "id": "soft_swoosh",
+      "kind": "sfx",
+      "path": "audio/sfx/soft_swoosh.wav",
+      "tags": [
+        "soft swoosh",
+        "sound",
+        "transition"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "soft",
+        "swoosh"
+      ]
+    },
+    {
+      "id": "low_thump",
+      "kind": "sfx",
+      "path": "audio/sfx/low_thump.wav",
+      "tags": [
+        "low thump",
+        "sound",
+        "transition"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "low",
+        "thump"
+      ]
+    },
+    {
+      "id": "bright_ding",
+      "kind": "sfx",
+      "path": "audio/sfx/bright_ding.wav",
+      "tags": [
+        "bright ding",
+        "sound",
+        "transition"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "bright",
+        "ding"
+      ]
+    },
+    {
+      "id": "page_flip",
+      "kind": "sfx",
+      "path": "audio/sfx/page_flip.wav",
+      "tags": [
+        "page flip",
+        "sound",
+        "transition"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "page",
+        "flip"
+      ]
+    },
+    {
+      "id": "ui_confirm",
+      "kind": "sfx",
+      "path": "audio/sfx/ui_confirm.wav",
+      "tags": [
+        "ui confirm",
+        "sound",
+        "transition"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "ui",
+        "confirm"
+      ]
+    },
+    {
+      "id": "glitch_tick",
+      "kind": "sfx",
+      "path": "audio/sfx/glitch_tick.wav",
+      "tags": [
+        "glitch tick",
+        "sound",
+        "transition"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "glitch",
+        "tick"
+      ]
+    },
+    {
+      "id": "riser_short",
+      "kind": "sfx",
+      "path": "audio/sfx/riser_short.wav",
+      "tags": [
+        "riser short",
+        "sound",
+        "transition"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "riser",
+        "short"
+      ]
+    },
+    {
+      "id": "transition_snap",
+      "kind": "sfx",
+      "path": "audio/sfx/transition_snap.wav",
+      "tags": [
+        "transition snap",
+        "sound",
+        "transition"
+      ],
+      "style": "cinematic_explainer",
+      "license": "original_in_package",
+      "script_signals": [
+        "transition",
+        "snap"
+      ]
+    }
+  ]
+}

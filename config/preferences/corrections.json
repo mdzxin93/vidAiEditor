@@ -1,0 +1,261 @@
+{
+  "version": "1.0",
+  "corrections": [
+    {
+      "correction_id": "corr_1792910821335_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1792910821.3355837
+    },
+    {
+      "correction_id": "corr_1792909724536_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1792909724.5361052
+    },
+    {
+      "correction_id": "corr_1791989196912_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791989196.9127383
+    },
+    {
+      "correction_id": "corr_1791988411685_zoom_cut_1",
+      "project_id": "sample-1",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.3,
+      "user_corrected_value": 1.35,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "pending_review",
+      "original_decision_provenance": {},
+      "user_note": "Update zoom transform on cut cut_1",
+      "timestamp": 1791988411.685385
+    },
+    {
+      "correction_id": "corr_1791987489058_zoom_cut_1",
+      "project_id": "sample_analysis",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.3,
+      "user_corrected_value": 1.35,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "pending_review",
+      "original_decision_provenance": {},
+      "user_note": "Update zoom transform on cut cut_1",
+      "timestamp": 1791987489.0584056
+    },
+    {
+      "correction_id": "corr_1791987486228_zoom_cut_1",
+      "project_id": "sample_analysis",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.15,
+      "user_corrected_value": 1.3,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "pending_review",
+      "original_decision_provenance": {},
+      "user_note": "Update zoom transform on cut cut_1",
+      "timestamp": 1791987486.2281122
+    },
+    {
+      "correction_id": "corr_1791987484711_zoom_cut_1",
+      "project_id": "sample_analysis",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.0,
+      "user_corrected_value": 1.15,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "pending_review",
+      "original_decision_provenance": {},
+      "user_note": "Update zoom transform on cut cut_1",
+      "timestamp": 1791987484.7110581
+    },
+    {
+      "correction_id": "corr_1791985213907_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791985213.9074733
+    },
+    {
+      "correction_id": "corr_1791985016947_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791985016.9473312
+    },
+    {
+      "correction_id": "corr_1791982583071_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791982583.0719094
+    },
+    {
+      "correction_id": "corr_1791977342611_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791977342.6114671
+    },
+    {
+      "correction_id": "corr_1791977227346_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791977227.346386
+    },
+    {
+      "correction_id": "corr_1791975860797_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791975860.7972791
+    },
+    {
+      "correction_id": "corr_1791974702803_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791974702.803831
+    },
+    {
+      "correction_id": "corr_1791973640794_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791973640.7946422
+    },
+    {
+      "correction_id": "corr_1791973538294_zoom_cut_1",
+      "project_id": "proj_undo_test",
+      "category": "zoom",
+      "parameter_key": "zoom_scale",
+      "original_ai_value": 1.25,
+      "user_corrected_value": 1.0,
+      "editing_context": {
+        "aspect_ratio": "9:16",
+        "cut_id": "cut_1"
+      },
+      "approval_status": "undo_op",
+      "original_decision_provenance": {},
+      "user_note": "Undo previous trim operation",
+      "timestamp": 1791973538.2943466
+    }
+  ]
+}

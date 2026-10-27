@@ -10,8 +10,10 @@ import {
 // Word-level caption for TikTok-style highlight display
 export interface WordCaption {
   word: string;
-  startMs: number;
-  endMs: number;
+  startMs?: number;
+  endMs?: number;
+  start?: number; // In seconds (from Whisper/transcriber)
+  end?: number;   // In seconds (from Whisper/transcriber)
   // Force a page break after this word (e.g. sentence or scene boundaries).
   // Useful for CJK captions where pages should align with clause boundaries.
   pageBreakAfter?: boolean;
@@ -33,14 +35,35 @@ type CaptionOverlayProps = {
 };
 
 interface CaptionPage {
-  words: WordCaption[];
+  words: { word: string; startMs: number; endMs: number; pageBreakAfter?: boolean }[];
   startMs: number;
   endMs: number;
 }
 
 function buildPages(words: WordCaption[], wordsPerPage: number): CaptionPage[] {
+  const normalizedWords = (words || []).map((w) => {
+    const startMs =
+      w.startMs !== undefined
+        ? w.startMs
+        : w.start !== undefined
+        ? Math.round(w.start * 1000)
+        : 0;
+    const endMs =
+      w.endMs !== undefined
+        ? w.endMs
+        : w.end !== undefined
+        ? Math.round(w.end * 1000)
+        : startMs + 300;
+    return {
+      word: w.word || "",
+      startMs,
+      endMs,
+      pageBreakAfter: w.pageBreakAfter,
+    };
+  });
+
   const pages: CaptionPage[] = [];
-  let pageWords: WordCaption[] = [];
+  let pageWords: { word: string; startMs: number; endMs: number; pageBreakAfter?: boolean }[] = [];
   const flush = () => {
     if (pageWords.length === 0) return;
     pages.push({
@@ -50,7 +73,7 @@ function buildPages(words: WordCaption[], wordsPerPage: number): CaptionPage[] {
     });
     pageWords = [];
   };
-  for (const w of words) {
+  for (const w of normalizedWords) {
     pageWords.push(w);
     if (pageWords.length >= wordsPerPage || w.pageBreakAfter) flush();
   }
@@ -73,11 +96,10 @@ const PageRenderer: React.FC<{
 
   const currentMs = page.startMs + (frame / fps) * 1000;
 
-  // Spring entrance
-  const entrance = spring({
-    frame,
-    fps,
-    config: { damping: 18, stiffness: 120 },
+  // Fast, subtle 2-frame fade with ZERO vertical movement (no jumping spring)
+  const opacity = interpolate(frame, [0, 2], [0.6, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
   });
 
   return (
@@ -86,45 +108,53 @@ const PageRenderer: React.FC<{
         justifyContent: "flex-end",
         alignItems: "center",
         paddingBottom,
+        pointerEvents: "none",
       }}
     >
       <div
         style={{
-          opacity: entrance,
-          transform: `translateY(${interpolate(entrance, [0, 1], [20, 0])}px)`,
-          backgroundColor,
-          borderRadius: 12,
+          opacity,
+          backgroundColor: backgroundColor || "rgba(10, 15, 29, 0.65)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          borderRadius: 18,
           padding: "14px 28px",
-          maxWidth: "80%",
+          maxWidth: "86%",
           textAlign: "center",
+          border: "1px solid rgba(255, 255, 255, 0.12)",
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
         }}
       >
         <span
           style={{
             fontSize,
-            fontWeight: 700,
-            fontFamily,
-            lineHeight: 1.4,
+            fontWeight: 800,
+            fontFamily: fontFamily || "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            lineHeight: 1.35,
+            letterSpacing: "-0.01em",
             whiteSpace: "pre-wrap",
           }}
         >
           {page.words.map((w, i) => {
-            const isActive = w.startMs <= currentMs && w.endMs > currentMs;
-            const isPast = w.endMs <= currentMs;
+            const nextWord = page.words[i + 1];
+            // Smoothly bridge micro-gaps between consecutive words in a phrase
+            const activeEnd = nextWord ? nextWord.startMs : w.endMs;
+            const isActive = currentMs >= w.startMs && currentMs < activeEnd;
+            const isPast = currentMs >= activeEnd;
             return (
               <span
                 key={`${w.startMs}-${i}`}
                 style={{
                   display: "inline-block",
                   whiteSpace: "nowrap",
-                  marginRight: 14,
-                  transform: isActive ? "scale(1.14)" : "scale(1.0)",
-                  transformOrigin: "center bottom",
-                  color: isActive ? highlightColor : isPast ? color : `${color}99`,
-                  transition: "none", // CSS transitions forbidden in Remotion
+                  margin: "0 6px",
+                  transform: isActive ? "scale(1.08)" : "scale(1.0)",
+                  transformOrigin: "center center",
+                  color: isActive ? highlightColor : isPast ? color : `${color}88`,
+                  transition: "none",
                   textShadow: isActive
-                    ? `0 0 24px ${highlightColor}88, 0 2px 6px rgba(0,0,0,0.7)`
-                    : "0 2px 4px rgba(0,0,0,0.5)",
+                    ? `0 0 20px ${highlightColor}, 0 2px 8px rgba(0,0,0,0.9)`
+                    : "0 2px 6px rgba(0,0,0,0.85)",
                 }}
               >
                 {w.word}

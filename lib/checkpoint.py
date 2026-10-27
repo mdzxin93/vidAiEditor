@@ -435,6 +435,7 @@ def write_checkpoint(
     cost_snapshot: Optional[dict] = None,
     error: Optional[str] = None,
     metadata: Optional[dict] = None,
+    enforce_prerequisites: bool = True,
 ) -> Path:
     """Write a checkpoint file for a pipeline stage."""
     # Backfill identity fields from the project marker so omitted kwargs
@@ -493,13 +494,14 @@ def write_checkpoint(
                 f"re-write with status='completed', human_approved=True."
             )
 
-    _enforce_stage_prerequisites(
-        pipeline_dir,
-        project_id,
-        pipeline_type,
-        stage,
-        status,
-    )
+    if enforce_prerequisites:
+        _enforce_stage_prerequisites(
+            pipeline_dir,
+            project_id,
+            pipeline_type,
+            stage,
+            status,
+        )
 
     checkpoint = {
         "version": "1.0",

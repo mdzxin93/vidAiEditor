@@ -1,0 +1,135 @@
+{
+  "version": "1.0",
+  "presets": [
+    {
+      "preset_id": "educational-explainer",
+      "title": "Educational Explainer",
+      "description": "Clear, authoritative pacing with subtle zooms and high-legibility captions.",
+      "is_builtin": true,
+      "target_aspect": "9:16",
+      "caption_preset": "word_highlight",
+      "caption_font_family": "Inter, sans-serif",
+      "caption_font_size": 48,
+      "caption_highlight_color": "#38BDF8",
+      "caption_background_color": "rgba(15, 23, 42, 0.75)",
+      "words_per_page": 4,
+      "zoom_intensity": "subtle",
+      "zoom_scale": 1.1,
+      "cut_aggressiveness": "balanced",
+      "min_pause_cut_duration": 1.2,
+      "pacing_rest_interval": 2.5,
+      "graphic_density": "medium",
+      "preferred_overlay_types": [
+        "stat_card",
+        "callout",
+        "comparison"
+      ],
+      "color_palette": {
+        "primary": "#2563EB",
+        "accent": "#38BDF8",
+        "background": "#0F172A"
+      },
+      "audio_settings": {
+        "bgm_enabled": true,
+        "bgm_volume": 0.2
+      }
+    },
+    {
+      "preset_id": "high-energy-short",
+      "title": "High-Energy Viral Short",
+      "description": "Snappy dead-air cuts, punchy 1.4x emphasis zooms, and dynamic Hormozi captions.",
+      "is_builtin": true,
+      "target_aspect": "9:16",
+      "caption_preset": "viral_dynamic",
+      "caption_font_family": "Montserrat, sans-serif",
+      "caption_font_size": 56,
+      "caption_highlight_color": "#FACC15",
+      "caption_background_color": "rgba(0, 0, 0, 0.85)",
+      "words_per_page": 3,
+      "zoom_intensity": "punchy",
+      "zoom_scale": 1.4,
+      "cut_aggressiveness": "aggressive",
+      "min_pause_cut_duration": 0.55,
+      "pacing_rest_interval": 1.8,
+      "graphic_density": "data_heavy",
+      "preferred_overlay_types": [
+        "stat_card",
+        "stat_reveal",
+        "callout"
+      ],
+      "color_palette": {
+        "primary": "#7C3AED",
+        "accent": "#FACC15",
+        "background": "#000000"
+      },
+      "audio_settings": {
+        "bgm_enabled": true,
+        "bgm_volume": 0.35
+      }
+    },
+    {
+      "preset_id": "minimal-professional",
+      "title": "Minimal Professional",
+      "description": "Executive, corporate look with clean typography, conservative cuts, and no aggressive zooms.",
+      "is_builtin": true,
+      "target_aspect": "16:9",
+      "caption_preset": "clean_lower_third",
+      "caption_font_family": "Inter, sans-serif",
+      "caption_font_size": 42,
+      "caption_highlight_color": "#2563EB",
+      "caption_background_color": "rgba(255, 255, 255, 0.90)",
+      "words_per_page": 5,
+      "zoom_intensity": "none",
+      "zoom_scale": 1.0,
+      "cut_aggressiveness": "conservative",
+      "min_pause_cut_duration": 1.8,
+      "pacing_rest_interval": 3.5,
+      "graphic_density": "minimal",
+      "preferred_overlay_types": [
+        "callout"
+      ],
+      "color_palette": {
+        "primary": "#1E293B",
+        "accent": "#2563EB",
+        "background": "#FFFFFF"
+      },
+      "audio_settings": {
+        "bgm_enabled": false,
+        "bgm_volume": 0.0
+      }
+    },
+    {
+      "preset_id": "technology-demo",
+      "title": "Technology Demonstration",
+      "description": "Balanced rhythm suited for code walkthroughs, UI flows, and KPI benchmarks.",
+      "is_builtin": true,
+      "target_aspect": "16:9",
+      "caption_preset": "word_highlight",
+      "caption_font_family": "JetBrains Mono, monospace",
+      "caption_font_size": 44,
+      "caption_highlight_color": "#10B981",
+      "caption_background_color": "rgba(17, 24, 39, 0.85)",
+      "words_per_page": 4,
+      "zoom_intensity": "subtle",
+      "zoom_scale": 1.12,
+      "cut_aggressiveness": "balanced",
+      "min_pause_cut_duration": 1.0,
+      "pacing_rest_interval": 2.2,
+      "graphic_density": "medium",
+      "preferred_overlay_types": [
+        "stat_card",
+        "kpi_grid",
+        "callout"
+      ],
+      "color_palette": {
+        "primary": "#059669",
+        "accent": "#10B981",
+        "background": "#111827"
+      },
+      "audio_settings": {
+        "bgm_enabled": true,
+        "bgm_volume": 0.18
+      }
+    }
+  ]
+}

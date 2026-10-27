@@ -1,0 +1,40 @@
+# OpenMontage - Autonomous AI Editor Configuration
+
+# Active provider: heuristic_engine | local_vlm | local_llm | remote_api
+provider: "heuristic_engine"
+
+local_vlm:
+  model_name: "HuggingFaceTB/SmolVLM-500M-Instruct"
+  model_format: "transformers"  # transformers | gguf | onnx
+  model_path: "models/SmolVLM-500M-Instruct"
+  device: "cpu"                 # cuda | cpu | auto
+  quantization: "none"          # 4bit | 8bit | fp16 | none
+  max_frames: 8
+  frame_resolution: [640, 360]
+  temperature: 0.2
+
+local_llm:
+  provider: "ollama"            # ollama | llama_cpp | transformers
+  model_name: "llama3.2:3b"
+  endpoint: "http://localhost:11434"
+  temperature: 0.3
+
+remote_api:
+  provider: "openai"            # openai | gemini | anthropic | openrouter
+  model_name: "gpt-4o-mini"
+  api_key_env: "OPENAI_API_KEY"
+  temperature: 0.3
+
+editorial_rules:
+  min_pause_cut_duration: 0.5   # seconds of silence to trigger a pause cut
+  breath_pause_target: 0.20     # natural breath room left after cut
+  boundary_padding_seconds: 0.05
+  zoom_frequency: "sparing"     # sparing (15-25% of footage) | moderate | frequent
+  zoom_scale: 1.15              # punch-in scale factor
+  min_zoom_duration: 1.5        # minimum seconds for a zoom segment
+  max_zoom_duration: 4.5        # maximum seconds for a zoom segment
+  export_aspect_ratio: "9:16"   # 9:16 (vertical reel/short) | 16:9 | 1:1
+  words_per_page: 3             # words per subtitle line
+  highlight_color: "#FACC15"    # dynamic caption emphasis color
+  overlay_region: "upper_third" # default placement for stat cards/callouts in 9:16
+  rest_interval_seconds: 2.0    # min seconds between consecutive overlays

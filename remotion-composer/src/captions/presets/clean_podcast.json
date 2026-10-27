@@ -1,0 +1,54 @@
+{
+  "style_id": "clean_podcast",
+  "name": "Clean Podcast",
+  "font_family": "Inter Display",
+  "font_weight": 800,
+  "font_color": "#FFFFFF",
+  "text_alignment": "center",
+  "letter_spacing_em": -0.045,
+  "background": "rgba(10, 15, 29, 0.65)",
+  "background_blur_px": 12,
+  "background_border_radius_px": 16,
+  "background_padding_px": "12px 24px",
+  "outline_enabled": false,
+  "shadow_enabled": true,
+  "shadow_style": "0 4px 12px rgba(0,0,0,0.5)",
+  "word_level_timing": true,
+  "emphasis_enabled": true,
+  "emphasis_scale": 1.25,
+  "emphasis_color": "#38BDF8",
+  "emphasis_font_weight": 900,
+  "caption_grouping": {
+    "minimum_words": 2,
+    "maximum_words": 5,
+    "target_words_per_cue": 3,
+    "max_chars_per_line": 28,
+    "pause_threshold_ms": 300
+  },
+  "animation": {
+    "type": "fade_slide",
+    "duration_ms": 120,
+    "enter_frames": 2,
+    "exit_frames": 2,
+    "initial_scale": 0.98,
+    "final_scale": 1.0,
+    "exit_scale": 1.0,
+    "fade_in": true,
+    "fade_out": true,
+    "easing": "easeOutCubic"
+  },
+  "layout": {
+    "horizontal_alignment": "center",
+    "vertical_position": 0.76,
+    "safe_margin_percent": 8,
+    "max_width_percent": 88
+  },
+  "rendering": {
+    "resolution_adaptive": true,
+    "anti_aliasing": true,
+    "transparent_overlay": true,
+    "normal_size_pct_of_width": 0.052,
+    "emphasis_size_pct_of_width": 0.068,
+    "support_size_pct_of_width": 0.045
+  }
+}

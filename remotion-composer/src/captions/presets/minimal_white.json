@@ -1,0 +1,50 @@
+{
+  "style_id": "minimal_white",
+  "name": "Minimal White",
+  "font_family": "Inter Display",
+  "font_weight": 700,
+  "font_color": "#FFFFFF",
+  "text_alignment": "center",
+  "letter_spacing_em": -0.03,
+  "background": "transparent",
+  "outline_enabled": false,
+  "shadow_enabled": true,
+  "shadow_style": "0 2px 8px rgba(0,0,0,0.4)",
+  "word_level_timing": true,
+  "emphasis_enabled": false,
+  "emphasis_scale": 1.2,
+  "emphasis_font_weight": 800,
+  "caption_grouping": {
+    "minimum_words": 2,
+    "maximum_words": 5,
+    "target_words_per_cue": 3,
+    "max_chars_per_line": 32,
+    "pause_threshold_ms": 350
+  },
+  "animation": {
+    "type": "clean_fade",
+    "duration_ms": 100,
+    "enter_frames": 2,
+    "exit_frames": 2,
+    "initial_scale": 1.0,
+    "final_scale": 1.0,
+    "exit_scale": 1.0,
+    "fade_in": true,
+    "fade_out": true,
+    "easing": "linear"
+  },
+  "layout": {
+    "horizontal_alignment": "center",
+    "vertical_position": 0.82,
+    "safe_margin_percent": 8,
+    "max_width_percent": 88
+  },
+  "rendering": {
+    "resolution_adaptive": true,
+    "anti_aliasing": true,
+    "transparent_overlay": true,
+    "normal_size_pct_of_width": 0.055,
+    "emphasis_size_pct_of_width": 0.065,
+    "support_size_pct_of_width": 0.045
+  }
+}

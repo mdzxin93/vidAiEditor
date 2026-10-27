@@ -16,6 +16,8 @@ import { ProductReveal, ProductRevealProps } from "./components/ProductReveal";
 import { CaptionOverlay, WordCaption } from "./components/CaptionOverlay";
 import { CollageBurst, CollageBurstProps } from "./CollageBurst";
 import { LyricOverlay, LyricOverlayProps } from "./LyricOverlay";
+import { CaptionPreview, CaptionPreviewProps } from "./captions/components/CaptionPreview";
+import { KineticCue } from "./captions/types/caption.types";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -132,6 +134,46 @@ const calculateMetadata: CalculateMetadataFunction<ExplainerProps> = async ({
   return { durationInFrames: Math.ceil((lastEnd + 1) * 30) };
 };
 
+const calculateTalkingHeadMetadata: CalculateMetadataFunction<TalkingHeadProps> = async ({
+  props,
+}) => {
+  const fps = 30;
+  if (props.cuts && props.cuts.length > 0) {
+    const totalCutSec = props.cuts.reduce(
+      (acc, c) => acc + ((c.out_seconds || 0) - (c.in_seconds || 0)) / (c.speed || 1.0),
+      0
+    );
+    return { durationInFrames: Math.max(30, Math.ceil(totalCutSec * fps)) };
+  }
+  if (props.durationInSeconds && typeof props.durationInSeconds === "number") {
+    return { durationInFrames: Math.max(30, Math.ceil(props.durationInSeconds * fps)) };
+  }
+  if (props.captions && props.captions.length > 0) {
+    const lastWord = props.captions[props.captions.length - 1];
+    const endSec = (lastWord.endMs ? lastWord.endMs / 1000 : (lastWord.end || 0)) + 0.8;
+    return { durationInFrames: Math.max(30, Math.ceil(endSec * fps)) };
+  }
+  return { durationInFrames: 30 * 30 };
+};
+
+const calculateKineticCaptionsMetadata: CalculateMetadataFunction<CaptionPreviewProps> = async ({
+  props,
+}) => {
+  const fps = 30;
+  if (props.cuts && props.cuts.length > 0) {
+    const totalCutSec = props.cuts.reduce(
+      (acc, c) => acc + ((c.out_seconds || 0) - (c.in_seconds || 0)) / (c.speed || 1.0),
+      0
+    );
+    return { durationInFrames: Math.max(30, Math.ceil(totalCutSec * fps)) };
+  }
+  if (props.cues && props.cues.length > 0) {
+    const maxEnd = Math.max(...props.cues.map((c) => c.end || 0));
+    return { durationInFrames: Math.max(30, Math.ceil((maxEnd + 0.5) * fps)) };
+  }
+  return { durationInFrames: 30 * 30 };
+};
+
 export const Root: React.FC = () => {
   return (
     <>
@@ -190,6 +232,7 @@ export const Root: React.FC = () => {
           fontSize: 52,
           highlightColor: "#22D3EE",
         }}
+        calculateMetadata={calculateTalkingHeadMetadata}
       />
       <Composition
         id="TitledVideo"
@@ -329,6 +372,58 @@ export const Root: React.FC = () => {
           fadeOutSeconds: 1.5,
           overlay: true,
         } as EndTagProps}
+      />
+      <Composition
+        id="KineticCaptionsVideo"
+        component={CaptionPreview as any}
+        durationInFrames={30 * 60}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          videoSrc: "",
+          cues: [] as KineticCue[],
+        }}
+        calculateMetadata={calculateKineticCaptionsMetadata as any}
+      />
+      <Composition
+        id="KineticCaptionsVertical"
+        component={CaptionPreview as any}
+        durationInFrames={30 * 60}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          videoSrc: "",
+          cues: [] as KineticCue[],
+        }}
+        calculateMetadata={calculateKineticCaptionsMetadata as any}
+      />
+      <Composition
+        id="KineticCaptionsHorizontal"
+        component={CaptionPreview as any}
+        durationInFrames={30 * 60}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          videoSrc: "",
+          cues: [] as KineticCue[],
+        }}
+        calculateMetadata={calculateKineticCaptionsMetadata as any}
+      />
+      <Composition
+        id="KineticCaptionsSquare"
+        component={CaptionPreview as any}
+        durationInFrames={30 * 60}
+        fps={30}
+        width={1080}
+        height={1080}
+        defaultProps={{
+          videoSrc: "",
+          cues: [] as KineticCue[],
+        }}
+        calculateMetadata={calculateKineticCaptionsMetadata as any}
       />
     </>
   );

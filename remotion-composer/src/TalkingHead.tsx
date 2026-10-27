@@ -1,6 +1,7 @@
 import {
   AbsoluteFill,
   Audio,
+  Easing,
   OffthreadVideo,
   Sequence,
   interpolate,
@@ -20,6 +21,9 @@ import { KPIGrid } from "./components/charts/KPIGrid";
 import { HeroTitle } from "./components/HeroTitle";
 import { SectionTitle } from "./components/SectionTitle";
 import { StatReveal } from "./components/StatReveal";
+import { ProcessFlow, ProcessStep } from "./components/ProcessFlow";
+import { FeatureCard } from "./components/FeatureCard";
+import { Img } from "remotion";
 
 // ---------------------------------------------------------------------------
 // Overlay types for talking-head video
@@ -33,6 +37,7 @@ export interface TalkingHeadOverlay {
   position?:
     | "lower_third"
     | "upper_third"
+    | "upper_window"
     | "left_panel"
     | "right_panel"
     | "full_overlay";
@@ -58,6 +63,18 @@ export interface TalkingHeadOverlay {
   showLegend?: boolean;
   showMarkers?: boolean;
   columns?: 2 | 3 | 4;
+  // B-roll & Media props
+  mediaSrc?: string;
+  isVideo?: boolean;
+  // Stat trend props
+  trend?: "positive" | "negative" | "neutral";
+  trendDelta?: string;
+  // ProcessFlow props
+  steps?: ProcessStep[];
+  activeStep?: number;
+  // FeatureCard props
+  categoryTag?: string;
+  metric?: string;
   // Styling
   backgroundColor?: string;
   color?: string;
@@ -86,6 +103,13 @@ const POSITION_STYLES: Record<string, React.CSSProperties> = {
     left: 60,
     right: 60,
     height: 210,
+  },
+  upper_window: {
+    position: "absolute",
+    top: 50,
+    left: 60,
+    right: 60,
+    height: 380,
   },
   left_panel: {
     position: "absolute",
@@ -138,6 +162,8 @@ const OverlayContent: React.FC<{ overlay: TalkingHeadOverlay }> = ({
         backgroundColor={bgColor}
         statFontSize={overlay.statFontSize || 68}
         subtitleFontSize={overlay.subtitleFontSize || 26}
+        trend={overlay.trend}
+        trendDelta={overlay.trendDelta}
       />
     );
   }
@@ -171,6 +197,83 @@ const OverlayContent: React.FC<{ overlay: TalkingHeadOverlay }> = ({
         backgroundColor={bgColor}
         textColor={overlay.color}
       />
+    );
+  }
+  if (overlay.type === "process_flow" && overlay.steps) {
+    return (
+      <ProcessFlow
+        title={overlay.title}
+        steps={overlay.steps}
+        activeStep={overlay.activeStep}
+        accentColor={overlay.accentColor}
+        backgroundColor={bgColor}
+        textColor={overlay.color}
+      />
+    );
+  }
+  if (overlay.type === "feature_card" && (overlay.title || overlay.text)) {
+    return (
+      <FeatureCard
+        title={overlay.title || overlay.text || ""}
+        subtitle={overlay.subtitle}
+        categoryTag={overlay.categoryTag}
+        metric={overlay.metric}
+        accentColor={overlay.accentColor}
+        backgroundColor={bgColor}
+        textColor={overlay.color}
+      />
+    );
+  }
+  if (overlay.type === "broll" && overlay.mediaSrc) {
+    const isVideo =
+      overlay.isVideo ?? !overlay.mediaSrc.match(/\.(png|jpg|jpeg|webp)$/i);
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          overflow: "hidden",
+          borderRadius: overlay.position === "full_overlay" ? 0 : 16,
+          border:
+            overlay.position === "full_overlay"
+              ? "none"
+              : `2px solid ${overlay.accentColor || "rgba(255, 255, 255, 0.15)"}`,
+        }}
+      >
+        {isVideo ? (
+          <OffthreadVideo
+            src={resolveAsset(overlay.mediaSrc)}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        ) : (
+          <Img
+            src={resolveAsset(overlay.mediaSrc)}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        )}
+        {overlay.title && (
+          <div
+            style={{
+              position: "absolute",
+              bottom: 16,
+              left: 16,
+              right: 16,
+              background: "rgba(15, 23, 42, 0.88)",
+              backdropFilter: "blur(8px)",
+              padding: "6px 14px",
+              borderRadius: 8,
+              color: "#FFF",
+              fontFamily: "Inter, sans-serif",
+              fontSize: 18,
+              fontWeight: 700,
+              borderLeft: `4px solid ${overlay.accentColor || "#38BDF8"}`,
+            }}
+          >
+            {overlay.title}
+          </div>
+        )}
+      </div>
     );
   }
   if (overlay.type === "bar_chart" && overlay.chartData) {
@@ -303,9 +406,22 @@ const PositionedOverlay: React.FC<{ overlay: TalkingHeadOverlay }> = ({
 // Main TalkingHead composition
 // ---------------------------------------------------------------------------
 
+export interface TalkingHeadCut {
+  id?: string;
+  source?: string;
+  in_seconds: number;
+  out_seconds: number;
+  speed?: number;
+  transform?: {
+    scale?: number;
+    position?: string;
+  };
+}
+
 export interface TalkingHeadProps {
   [key: string]: unknown;
   videoSrc: string;
+  cuts?: TalkingHeadCut[];
   captions: WordCaption[];
   overlays?: TalkingHeadOverlay[];
   wordsPerPage?: number;
@@ -316,10 +432,94 @@ export interface TalkingHeadProps {
   captionFontFamily?: string;
   // Pass "" for CJK captions (no inter-word spacing); defaults to " ".
   captionWordSeparator?: string;
+  captionPaddingBottom?: number;
 }
+
+interface TalkingHeadCutItemProps {
+  cut: TalkingHeadCut;
+  durationFrames: number;
+  src: string;
+  fps: number;
+  idx: number;
+  previousScale?: number;
+}
+
+const TalkingHeadCutItem: React.FC<TalkingHeadCutItemProps> = ({
+  cut,
+  durationFrames,
+  src,
+  fps,
+  idx,
+  previousScale = 1.0,
+}) => {
+  const frame = useCurrentFrame();
+  const baseScale = cut.transform?.scale || 1.0;
+
+  // Smooth Fade In transition at start of cut (dissolve into cut, avoiding harsh pop)
+  const fadeInFrames = idx === 0 ? 0 : 5;
+  const fadeOpacity =
+    fadeInFrames === 0
+      ? 1.0
+      : interpolate(frame, [0, fadeInFrames], [0.35, 1.0], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: Easing.out(Easing.quad),
+        });
+
+  // Dynamic zoom transition: smoothly zoom in / zoom out when cut framing changes
+  let animatedScale = baseScale;
+  if (idx > 0 && Math.abs(baseScale - previousScale) > 0.03) {
+    const zoomTransFrames = Math.min(8, Math.floor(durationFrames / 2));
+    if (frame < zoomTransFrames) {
+      const zoomProgress = interpolate(frame, [0, zoomTransFrames], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: Easing.out(Easing.cubic),
+      });
+      const startScale =
+        baseScale > previousScale
+          ? baseScale * 0.94 // zoom in motion
+          : baseScale * 1.06; // zoom out motion
+      animatedScale = startScale + (baseScale - startScale) * zoomProgress;
+    }
+  }
+
+  // Subtle continuous cinematic drift (gentle zoom in)
+  const driftScale = interpolate(
+    frame,
+    [0, durationFrames],
+    [1.0, 1.02],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
+
+  const finalScale = animatedScale * driftScale;
+
+  return (
+    <AbsoluteFill style={{ overflow: "hidden", opacity: fadeOpacity }}>
+      <OffthreadVideo
+        src={resolveAsset(src)}
+        startFrom={Math.round(cut.in_seconds * fps)}
+        playbackRate={cut.speed || 1.0}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          transform: `scale(${finalScale})`,
+          transformOrigin: "center 35%",
+        }}
+      />
+      <Audio
+        src={resolveAsset(src)}
+        startFrom={Math.round(cut.in_seconds * fps)}
+        playbackRate={cut.speed || 1.0}
+      />
+    </AbsoluteFill>
+  );
+};
 
 export const TalkingHead: React.FC<TalkingHeadProps> = ({
   videoSrc,
+  cuts,
   captions,
   overlays,
   wordsPerPage = 4,
@@ -329,27 +529,75 @@ export const TalkingHead: React.FC<TalkingHeadProps> = ({
   captionBackgroundColor = "rgba(0, 0, 0, 0.65)",
   captionFontFamily,
   captionWordSeparator,
+  captionPaddingBottom = 340,
 }) => {
   const { fps } = useVideoConfig();
 
+  const hasCuts = Array.isArray(cuts) && cuts.length > 0;
+  let accumulatedFrames = 0;
+
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      {/* Layer 1: Video background & audio */}
-      <OffthreadVideo
-        src={resolveAsset(videoSrc)}
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
-      <Audio src={resolveAsset(videoSrc)} />
+      {/* Layer 1: Video background & audio (either sequenced cuts with smooth zoom-in, zoom-out, and fade transitions or continuous video) */}
+      {hasCuts ? (
+        cuts!.map((cut, idx) => {
+          const cutDurationSeconds =
+            (cut.out_seconds - cut.in_seconds) / (cut.speed || 1.0);
+          const durationFrames = Math.max(1, Math.round(cutDurationSeconds * fps));
+          const fromFrame = accumulatedFrames;
+          accumulatedFrames += durationFrames;
+          const src = cut.source || videoSrc;
+          const previousCut = idx > 0 ? cuts![idx - 1] : undefined;
+          const prevScale = previousCut?.transform?.scale || 1.0;
+
+          return (
+            <Sequence
+              key={cut.id || `cut-${idx}`}
+              from={fromFrame}
+              durationInFrames={durationFrames}
+            >
+              <TalkingHeadCutItem
+                cut={cut}
+                durationFrames={durationFrames}
+                src={src}
+                fps={fps}
+                idx={idx}
+                previousScale={prevScale}
+              />
+            </Sequence>
+          );
+        })
+      ) : (
+        <>
+          <OffthreadVideo
+            src={resolveAsset(videoSrc)}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+          <Audio src={resolveAsset(videoSrc)} />
+        </>
+      )}
 
       {/* Layer 2: Overlays (charts, stats, callouts, etc.) */}
       {overlays?.map((overlay, i) => {
-        const from = Math.round(overlay.in_seconds * fps);
-        const duration = Math.round(
-          (overlay.out_seconds - overlay.in_seconds) * fps
-        );
+        const inSec =
+          typeof overlay.in_seconds === "number" && !isNaN(overlay.in_seconds)
+            ? overlay.in_seconds
+            : typeof (overlay as any).start_seconds === "number" &&
+              !isNaN((overlay as any).start_seconds)
+            ? (overlay as any).start_seconds
+            : 0;
+        const outSec =
+          typeof overlay.out_seconds === "number" && !isNaN(overlay.out_seconds)
+            ? overlay.out_seconds
+            : typeof (overlay as any).end_seconds === "number" &&
+              !isNaN((overlay as any).end_seconds)
+            ? (overlay as any).end_seconds
+            : inSec + 3;
+        const from = Math.max(0, Math.round(inSec * fps));
+        const duration = Math.max(1, Math.round((outSec - inSec) * fps));
         return (
           <Sequence
-            key={overlay.id || `overlay-${i}`}
+            key={overlay.id || (overlay as any).asset_id || `overlay-${i}`}
             from={from}
             durationInFrames={duration}
           >
@@ -366,7 +614,7 @@ export const TalkingHead: React.FC<TalkingHeadProps> = ({
         highlightColor={highlightColor}
         backgroundColor={captionBackgroundColor}
         color={captionColor}
-        paddingBottom={280}
+        paddingBottom={captionPaddingBottom}
         {...(captionFontFamily ? { fontFamily: captionFontFamily } : {})}
         {...(captionWordSeparator !== undefined ? { wordSeparator: captionWordSeparator } : {})}
       />

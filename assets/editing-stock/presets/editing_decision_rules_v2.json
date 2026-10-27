@@ -1,0 +1,147 @@
+{
+  "version": "2.0",
+  "style": "cinematic_explainer",
+  "constraints": {
+    "no_random_broll": true,
+    "no_unlicensed_assets": true,
+    "min_shot_sec": 0.4,
+    "max_graphic_sec": 3.5,
+    "max_transition_sec": 0.35,
+    "sfx_peak_dbfs": -12,
+    "avoid_face_occlusion": true,
+    "repetition_cooldown_seconds": 12
+  },
+  "narrative_beats": [
+    {
+      "intent": "pain_problem",
+      "signals": [
+        "problem",
+        "struggle",
+        "challenge",
+        "issue"
+      ],
+      "visual_ids": [
+        "problem_solution",
+        "failure_results"
+      ],
+      "effect": "hard_cut",
+      "sfx": "low_thump",
+      "priority": 2
+    },
+    {
+      "intent": "time_effort",
+      "signals": [
+        "time",
+        "hours",
+        "schedule",
+        "daily"
+      ],
+      "visual_ids": [
+        "work_hours",
+        "calendar",
+        "timeline_progress"
+      ],
+      "effect": "cut_to_explainer",
+      "sfx": "tick",
+      "priority": 3
+    },
+    {
+      "intent": "money_metrics",
+      "signals": [
+        "money",
+        "revenue",
+        "profit",
+        "price",
+        "percentage"
+      ],
+      "visual_ids": [
+        "money_revenue",
+        "counter_numbers",
+        "growth_chart"
+      ],
+      "effect": "scale_in",
+      "sfx": "bright_ding",
+      "priority": 3
+    },
+    {
+      "intent": "growth_results",
+      "signals": [
+        "growth",
+        "success",
+        "improve",
+        "results"
+      ],
+      "visual_ids": [
+        "growth_chart",
+        "rocket_launch",
+        "target"
+      ],
+      "effect": "chart_reveal",
+      "sfx": "riser_short",
+      "priority": 2
+    },
+    {
+      "intent": "tech_automation",
+      "signals": [
+        "automation",
+        "ai",
+        "technology",
+        "software"
+      ],
+      "visual_ids": [
+        "ai_chip",
+        "workflow",
+        "automation"
+      ],
+      "effect": "grid_zoom",
+      "sfx": "soft_swoosh",
+      "priority": 2
+    },
+    {
+      "intent": "contrast",
+      "signals": [
+        "but",
+        "however",
+        "versus",
+        "instead"
+      ],
+      "visual_ids": [
+        "comparison",
+        "split_reveal"
+      ],
+      "effect": "split_reveal",
+      "sfx": "transition_snap",
+      "priority": 2
+    },
+    {
+      "intent": "social_content",
+      "signals": [
+        "social",
+        "content",
+        "followers",
+        "video"
+      ],
+      "visual_ids": [
+        "phone_social",
+        "social_content"
+      ],
+      "effect": "push_in",
+      "sfx": "ui_confirm",
+      "priority": 1
+    }
+  ],
+  "cut_rules": {
+    "default": "hard_cut",
+    "explainers_between_speaker_beats": true,
+    "use_whip_transition_only_on_fast_motion": true,
+    "respect_sentence_boundaries": true
+  },
+  "caption_rules": {
+    "font": "Inter Display",
+    "color": "#FFFFFF",
+    "emphasis_color": "#EF353D",
+    "max_words_per_card": 4,
+    "srt_export": true,
+    "avoid_layout_on_face": true
+  }
+}

@@ -53,6 +53,7 @@ from tools.base_tool import (
     ToolStability,
     ToolTier,
 )
+logger = logging.getLogger(__name__)
 
 
 class VideoCompose(BaseTool):
@@ -896,7 +897,7 @@ class VideoCompose(BaseTool):
         """
 
         staged_by_source: dict[Path, str] = {}
-        media_keys = {"source", "src", "backgroundSrc"}
+        media_keys = {"source", "src", "backgroundSrc", "backgroundVideo", "backgroundImage", "videoSrc", "mediaSrc"}
 
         def visit(node: Any, parent_key: str | None = None) -> Any:
             if isinstance(node, dict):
@@ -1990,10 +1991,15 @@ class VideoCompose(BaseTool):
                 error=f"Remotion composer project not found at {composer_dir}",
             )
 
-        # Route to the correct Remotion composition based on renderer_family.
+        # Route to the correct Remotion composition based on composition_id or renderer_family.
         # This prevents all pipelines from collapsing into the Explainer visual grammar.
         renderer_family = (composition_data or {}).get("renderer_family", "explainer-data")
-        composition_id = self._get_composition_id(renderer_family)
+        composition_id = (
+            inputs.get("composition_id")
+            or (composition_data or {}).get("composition_id")
+            or (renderer_family if renderer_family in ("Explainer", "CinematicRenderer", "TalkingHead", "TitledVideo", "HeroTitle", "ProductReveal", "ProductRevealVertical", "EndTag", "EndTagOverlay", "CollageBurst", "LyricOverlay", "CaptionOverlayOnly") else None)
+            or self._get_composition_id(renderer_family)
+        )
 
         if composition_id == "CinematicRenderer":
             if not props.get("scenes") and props.get("cuts"):
@@ -2004,6 +2010,13 @@ class VideoCompose(BaseTool):
                     success=False,
                     error="CinematicRenderer received cuts but none could be adapted into scenes.",
                 )
+
+        if composition_id == "TalkingHead":
+            th_props = props.get("metadata", {}).get("talking_head_props")
+            if isinstance(th_props, dict):
+                props.update(th_props)
+            if not props.get("videoSrc") and props.get("cuts"):
+                props["videoSrc"] = props["cuts"][0].get("source", "")
 
         requested_public_dir = inputs.get("public_dir")
         cleanup_public_dir = False
@@ -2066,10 +2079,11 @@ class VideoCompose(BaseTool):
             if profile_name:
                 try:
                     from lib.media_profiles import get_profile
-                    p = get_profile(profile_name)
-                    cmd.extend(["--width", str(p.width), "--height", str(p.height)])
-                except (ImportError, ValueError):
-                    pass
+                    prof = get_profile(profile_name)
+                    if prof:
+                        cmd.extend([f"--width={prof.width}", f"--height={prof.height}"])
+                except Exception as e:
+                    logger.debug("Failed to apply profile %s: %s", profile_name, e)
 
             # Optional creator-facing render timeout. Remotion's `--timeout` (ms)
             # governs headless-browser setup and delayRender(); on slow machines or
@@ -2087,11 +2101,40 @@ class VideoCompose(BaseTool):
                 except (TypeError, ValueError):
                     pass
 
-            # Invoke from inside the composer dir so npx can resolve the
-            # local remotion binary via node_modules/.bin. Without this,
-            # Windows npx cannot locate the CLI and returns "could not
-            # determine executable to run".
-            self.run_command(cmd, timeout=subprocess_timeout, cwd=composer_dir)
+            # Phase 11 Optimization: Concurrency & Preset Tuning for 16GB Intel Laptop
+            render_preset = str(inputs.get("render_preset") or inputs.get("preset") or "balanced").lower()
+            concurrency = int(inputs.get("concurrency") or (3 if render_preset == "final_quality" else 2))
+            cmd.extend([
+                f"--concurrency={concurrency}",
+                "--pixel-format=yuv420p",
+            ])
+
+            if render_preset in ("fast_preview", "fast"):
+                # 4x faster rasterization (540x960 instead of 1080x1920)
+                cmd.extend(["--scale=0.5", "--crf=28"])
+            elif render_preset == "balanced":
+                # Balanced preview: fast rasterization at high-clarity CRF 22
+                cmd.extend(["--scale=0.5", "--crf=22"])
+            elif render_preset in ("final_quality", "final"):
+                cmd.extend(["--scale=1.0", "--crf=18"])
+            elif inputs.get("scale"):
+                cmd.append(f"--scale={inputs['scale']}")
+
+            # Dynamically scale timeout based on timeline duration (CPU render runs at ~10 fps for 30 fps video)
+            total_duration_sec = 30.0
+            edits = inputs.get("edit_decisions") or {}
+            cuts = edits.get("cuts", [])
+            if cuts:
+                total_duration_sec = sum(
+                    max(0.0, ((c.get("out_seconds") or 0.0) - (c.get("in_seconds") or 0.0)) / max(0.1, c.get("speed") or 1.0))
+                    for c in cuts
+                )
+            elif edits.get("metadata", {}).get("duration"):
+                total_duration_sec = float(edits["metadata"]["duration"])
+            dynamic_min_timeout = max(float(subprocess_timeout), total_duration_sec * 3.5)
+            configured_timeout = float(inputs.get("timeout") or 0.0)
+            final_timeout = int(max(configured_timeout, dynamic_min_timeout))
+            self.run_command(cmd, timeout=final_timeout, cwd=composer_dir, job_id=inputs.get("job_id"))
         except subprocess.CalledProcessError as e:
             # run_command uses check=True + capture_output, so the useful
             # Remotion diagnostics live in stderr/stdout — surface the tail

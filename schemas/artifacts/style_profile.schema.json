@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StyleProfile",
+  "description": "Schema for extracted reference-video editorial and visual style intelligence (Phase 6).",
+  "type": "object",
+  "required": [
+    "version",
+    "style_id",
+    "style_name",
+    "reference_media",
+    "pacing",
+    "camera_composition",
+    "captions_typography",
+    "motion_graphics",
+    "color_palette",
+    "audio",
+    "confidence_scores",
+    "measurement_sources"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["2.0.0", "2.0"]
+    },
+    "style_id": {
+      "type": "string"
+    },
+    "style_name": {
+      "type": "string"
+    },
+    "reference_media": {
+      "type": "object",
+      "required": ["source_path", "duration_sec", "width", "height", "aspect_ratio"],
+      "properties": {
+        "source_path": { "type": "string" },
+        "file_name": { "type": "string" },
+        "duration_sec": { "type": "number", "minimum": 0 },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "aspect_ratio": { "type": "string" },
+        "fps": { "type": "number", "minimum": 1 }
+      }
+    },
+    "pacing": {
+      "type": "object",
+      "required": ["pacing_category", "average_shot_duration_sec", "cut_frequency_per_min"],
+      "properties": {
+        "pacing_category": {
+          "type": "string",
+          "enum": ["fast", "moderate", "deliberate"]
+        },
+        "average_shot_duration_sec": { "type": "number", "minimum": 0 },
+        "cut_frequency_per_min": { "type": "number", "minimum": 0 },
+        "shot_count": { "type": "integer", "minimum": 1 },
+        "shot_distribution": {
+          "type": "object",
+          "properties": {
+            "min_sec": { "type": "number" },
+            "max_sec": { "type": "number" },
+            "mean_sec": { "type": "number" },
+            "median_sec": { "type": "number" },
+            "std_dev_sec": { "type": "number" },
+            "iqr_sec": { "type": "number" }
+          }
+        },
+        "tempo_variance": { "type": "number" },
+        "transition_style": { "type": "string" }
+      }
+    },
+    "camera_composition": {
+      "type": "object",
+      "required": ["target_aspect_ratio", "zoom_frequency", "zoom_scale"],
+      "properties": {
+        "target_aspect_ratio": { "type": "string" },
+        "zoom_frequency": {
+          "type": "string",
+          "enum": ["frequent", "moderate", "sparing", "none"]
+        },
+        "zoom_scale": { "type": "number", "minimum": 1.0, "maximum": 2.0 },
+        "framing_distribution": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        },
+        "subject_alignment": { "type": "string" },
+        "camera_movement": { "type": "string" }
+      }
+    },
+    "captions_typography": {
+      "type": "object",
+      "required": ["placement", "words_per_group", "primary_color", "highlight_color"],
+      "properties": {
+        "placement": {
+          "type": "string",
+          "enum": ["bottom-center", "center", "upper-third", "lower-third"]
+        },
+        "words_per_group": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "font_family": { "type": "string" },
+        "font_preset": {
+          "type": "string",
+          "enum": ["modern_sans", "bold_impact", "editorial_serif", "minimalist"]
+        },
+        "font_size": { "type": "integer", "minimum": 12, "maximum": 120 },
+        "primary_color": { "type": "string" },
+        "highlight_color": { "type": "string" },
+        "background_color": { "type": "string" },
+        "animation_style": { "type": "string" }
+      }
+    },
+    "motion_graphics": {
+      "type": "object",
+      "required": ["graphic_density", "frequency_per_min"],
+      "properties": {
+        "graphic_density": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "dense"]
+        },
+        "frequency_per_min": { "type": "number", "minimum": 0 },
+        "avg_display_duration_sec": { "type": "number" },
+        "preferred_positions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "visual_complexity": { "type": "string" }
+      }
+    },
+    "color_palette": {
+      "type": "object",
+      "required": ["dominant_background", "text_primary", "accent_primary"],
+      "properties": {
+        "dominant_background": { "type": "string" },
+        "text_primary": { "type": "string" },
+        "accent_primary": { "type": "string" },
+        "secondary_accent": { "type": "string" },
+        "color_temperature": { "type": "string" },
+        "sampled_hex_codes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "required": ["has_audio", "speech_music_balance"],
+      "properties": {
+        "has_audio": { "type": "boolean" },
+        "mean_volume_db": { "type": ["number", "null"] },
+        "max_volume_db": { "type": ["number", "null"] },
+        "silence_ratio": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "speech_music_balance": {
+          "type": "string",
+          "enum": ["voice_dominant", "music_dominant", "balanced", "silent", "ambient"]
+        },
+        "bgm_detected": { "type": "boolean" }
+      }
+    },
+    "confidence_scores": {
+      "type": "object",
+      "required": ["pacing", "camera", "captions", "graphics", "color", "audio"],
+      "properties": {
+        "pacing": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "camera": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "captions": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "graphics": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "color": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "audio": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+      }
+    },
+    "measurement_sources": {
+      "type": "object",
+      "required": ["pacing", "camera", "captions", "graphics", "color", "audio"],
+      "properties": {
+        "pacing": { "type": "string" },
+        "camera": { "type": "string" },
+        "captions": { "type": "string" },
+        "graphics": { "type": "string" },
+        "color": { "type": "string" },
+        "audio": { "type": "string" }
+      }
+    },
+    "extraction_timestamp": {
+      "type": "string"
+    }
+  }
+}

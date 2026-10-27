@@ -1,0 +1,135 @@
+{
+  "version": "2.0.0",
+  "style_id": "dan_koe_technical_grid_explainer_v1",
+  "style_name": "Technical Blueprint Grid & Studio Talking Head Explainer",
+  "reference_media": {
+    "source_path": "projects/sample-1/Recording 2026-10-25 205001.mp4",
+    "file_name": "Recording 2026-10-25 205001.mp4",
+    "duration_sec": 29.17,
+    "width": 432,
+    "height": 720,
+    "aspect_ratio": "9:16",
+    "fps": 30.0
+  },
+  "pacing": {
+    "pacing_category": "fast",
+    "average_shot_duration_sec": 2.82,
+    "cut_frequency_per_min": 21.3,
+    "shot_count": 10,
+    "shot_distribution": {
+      "min_sec": 2.13,
+      "max_sec": 3.46,
+      "mean_sec": 2.82,
+      "median_sec": 2.85,
+      "std_dev_sec": 0.45,
+      "iqr_sec": 0.65
+    },
+    "tempo_variance": 0.16,
+    "transition_style": "hard_cuts_with_fullscreen_broll_takeovers"
+  },
+  "camera_composition": {
+    "target_aspect_ratio": "9:16",
+    "zoom_frequency": "frequent",
+    "zoom_scale": 1.18,
+    "zoom_levels": [1.0, 1.15, 1.25],
+    "zoom_anchor": {
+      "x": "center",
+      "y": "35%"
+    },
+    "framing_distribution": {
+      "medium_close_up": 0.55,
+      "close_up": 0.45
+    },
+    "subject_alignment": "center_vertical_axis",
+    "camera_movement": "static_with_punch_jump_cuts"
+  },
+  "captions_typography": {
+    "placement": "lower-third",
+    "vertical_position_pct": 65.0,
+    "words_per_group": 2,
+    "words_per_cue_range": [1, 4],
+    "font_family": "Inter Display, -apple-system, BlinkMacSystemFont, sans-serif",
+    "font_weight": 800,
+    "font_preset": "modern_sans",
+    "font_size": 72,
+    "primary_color": "#ffffff",
+    "highlight_color": "#ff1f38",
+    "background_color": "transparent",
+    "animation_style": "headline_pop_with_glow",
+    "stacked_layout": true,
+    "letter_spacing_px": -1.5,
+    "line_height_multiplier": 1.05,
+    "drop_shadow": "0 4px 20px rgba(0, 0, 0, 0.85)"
+  },
+  "motion_graphics": {
+    "graphic_density": "high",
+    "frequency_per_min": 10.5,
+    "avg_display_duration_sec": 2.65,
+    "preferred_positions": ["full_screen"],
+    "visual_complexity": "clean_technical_blueprint_grid",
+    "style_attributes": {
+      "card_background": "#f6f6f4",
+      "grid_lines": "#dededd",
+      "border_radius_px": 0,
+      "reveal_animation": "hard_cut_with_micro_scale_punch",
+      "reveal_duration_frames": 5
+    }
+  },
+  "color_palette": {
+    "dominant_background": "#0e1117",
+    "text_primary": "#ffffff",
+    "accent_primary": "#ff1f38",
+    "secondary_accent": "#f6f6f4",
+    "color_temperature": "high_contrast_studio",
+    "sampled_hex_codes": [
+      "#0e1117",
+      "#f6f6f4",
+      "#ff1f38",
+      "#171821",
+      "#ffffff",
+      "#dededd"
+    ]
+  },
+  "audio": {
+    "has_audio": true,
+    "mean_volume_db": -16.2,
+    "max_volume_db": -0.8,
+    "silence_ratio": 0.05,
+    "speech_music_balance": "voice_dominant",
+    "bgm_detected": true,
+    "sound_effects": {
+      "enabled": true,
+      "reveal_sfx": "soft_swoosh",
+      "emphasis_sfx": "impact",
+      "diagram_sfx": "tick",
+      "ducking_depth_db": -14.0
+    }
+  },
+  "editorial_rules": {
+    "hook_lead_sec": 1.2,
+    "min_broll_duration_sec": 1.8,
+    "max_broll_duration_sec": 3.4,
+    "broll_coverage_target_pct": 52.0,
+    "speech_pause_cut_threshold_sec": 0.35,
+    "jump_cut_scale_sequence": [1.0, 1.15, 1.0, 1.25, 1.15],
+    "repetition_penalty_cooldown_sec": 10.0,
+    "preserve_original_dialogue": true
+  },
+  "confidence_scores": {
+    "pacing": 0.99,
+    "camera": 0.98,
+    "captions": 0.99,
+    "graphics": 0.99,
+    "color": 0.98,
+    "audio": 0.97
+  },
+  "measurement_sources": {
+    "pacing": "ffmpeg_scene_gt_0.28_and_whisper_word_alignment",
+    "camera": "face_anchor_geometry_and_ffprobe",
+    "captions": "ocr_frame_sampling_and_kinetic_preset_matching",
+    "graphics": "scene_segmentation_fullscreen_grid_audit",
+    "color": "k_means_color_quantization_15_sampled_frames",
+    "audio": "ffmpeg_ebur128_and_whisper_vad"
+  },
+  "extraction_timestamp": "2026-10-25T15:35:00Z"
+}

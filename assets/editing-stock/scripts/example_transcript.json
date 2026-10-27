@@ -1,0 +1,24 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 3.1,
+      "text": "I work twelve hours a day and waste so much time."
+    },
+    {
+      "start": 3.1,
+      "end": 6.4,
+      "text": "Our business needs more revenue and consistent sales."
+    },
+    {
+      "start": 6.4,
+      "end": 9.8,
+      "text": "AI automation can improve our workflow and productivity."
+    },
+    {
+      "start": 9.8,
+      "end": 12.4,
+      "text": "Team collaboration and growth are essential."
+    }
+  ]
+}

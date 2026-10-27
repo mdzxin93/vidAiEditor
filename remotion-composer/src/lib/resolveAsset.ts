@@ -24,5 +24,16 @@ export function resolveAsset(src: string): string {
     return posix.startsWith("/") ? `file://${posix}` : `file:///${posix}`;
   }
 
-  return staticFile(clean);
+  let rel = clean.replace(/^public[\\/]/, "");
+  if (rel.startsWith("assets/editing-stock/")) {
+    rel = rel.replace(/^assets\/editing-stock\//, "editing-stock/");
+  } else if (
+    rel.startsWith("graphics/") ||
+    rel.startsWith("audio/") ||
+    rel.startsWith("broll/")
+  ) {
+    rel = `editing-stock/${rel}`;
+  }
+
+  return staticFile(rel);
 }

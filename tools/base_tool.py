@@ -414,8 +414,9 @@ class BaseTool(ABC):
         *,
         timeout: Optional[int] = None,
         cwd: Optional[Path] = None,
+        job_id: Optional[str] = None,
     ) -> subprocess.CompletedProcess:
-        """Run a subprocess command with standard error handling.
+        """Run a subprocess command with standard error handling and optional job tracking.
 
         On Windows, resolves .cmd/.bat wrappers (e.g. npx, npm) via
         shutil.which() so subprocess.run() can find them without shell=True.
@@ -426,20 +427,41 @@ class BaseTool(ABC):
             if exe:
                 resolved_cmd[0] = exe
         try:
-            return subprocess.run(
-                resolved_cmd,
-                capture_output=True,
-                text=True,
-                # Force UTF-8 decoding. The default uses the OS locale (cp1252 on
-                # Windows), which raises UnicodeDecodeError on a subprocess that
-                # emits Unicode/emoji (e.g. Remotion's progress output), killing the
-                # reader thread and potentially swallowing the real error text.
-                encoding="utf-8",
-                errors="replace",
-                timeout=timeout,
-                cwd=cwd,
-                check=True,
-            )
+            if job_id:
+                proc = subprocess.Popen(
+                    resolved_cmd,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True,
+                    encoding="utf-8",
+                    errors="replace",
+                    cwd=cwd,
+                )
+                try:
+                    from lib.api.jobs import job_manager
+                    job_manager.register_process(job_id, proc)
+                except Exception:
+                    pass
+                try:
+                    stdout, stderr = proc.communicate(timeout=timeout)
+                except subprocess.TimeoutExpired as exc:
+                    proc.kill()
+                    proc.communicate()
+                    raise exc
+                if proc.returncode != 0:
+                    raise subprocess.CalledProcessError(proc.returncode, resolved_cmd, output=stdout, stderr=stderr)
+                return subprocess.CompletedProcess(resolved_cmd, proc.returncode, stdout, stderr)
+            else:
+                return subprocess.run(
+                    resolved_cmd,
+                    capture_output=True,
+                    text=True,
+                    encoding="utf-8",
+                    errors="replace",
+                    timeout=timeout,
+                    cwd=cwd,
+                    check=True,
+                )
         except subprocess.CalledProcessError as exc:
             stderr = (exc.stderr or "").strip()
             stdout = (exc.stdout or "").strip()

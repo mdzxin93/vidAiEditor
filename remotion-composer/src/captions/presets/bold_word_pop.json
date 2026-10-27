@@ -1,0 +1,53 @@
+{
+  "style_id": "bold_word_pop",
+  "name": "Bold Word Pop",
+  "font_family": "Inter Display",
+  "font_weight": 900,
+  "font_color": "#FFFFFF",
+  "text_alignment": "center",
+  "letter_spacing_em": -0.04,
+  "background": "transparent",
+  "outline_enabled": true,
+  "outline_color": "rgba(0,0,0,0.85)",
+  "outline_width_px": 4,
+  "shadow_enabled": true,
+  "shadow_style": "0 6px 16px rgba(0,0,0,0.6)",
+  "word_level_timing": true,
+  "emphasis_enabled": true,
+  "emphasis_scale": 1.45,
+  "emphasis_color": "#FACC15",
+  "emphasis_font_weight": 900,
+  "caption_grouping": {
+    "minimum_words": 1,
+    "maximum_words": 3,
+    "target_words_per_cue": 2,
+    "max_chars_per_line": 20,
+    "pause_threshold_ms": 250
+  },
+  "animation": {
+    "type": "pop_bounce",
+    "duration_ms": 150,
+    "enter_frames": 4,
+    "exit_frames": 2,
+    "initial_scale": 0.88,
+    "final_scale": 1.0,
+    "exit_scale": 1.02,
+    "fade_in": true,
+    "fade_out": false,
+    "easing": "easeOutBack"
+  },
+  "layout": {
+    "horizontal_alignment": "center",
+    "vertical_position": 0.55,
+    "safe_margin_percent": 8,
+    "max_width_percent": 90
+  },
+  "rendering": {
+    "resolution_adaptive": true,
+    "anti_aliasing": true,
+    "transparent_overlay": true,
+    "normal_size_pct_of_width": 0.08,
+    "emphasis_size_pct_of_width": 0.11,
+    "support_size_pct_of_width": 0.06
+  }
+}

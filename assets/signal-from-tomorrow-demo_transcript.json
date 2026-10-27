@@ -1,0 +1,10 @@
+{
+  "segments": [],
+  "word_timestamps": [],
+  "language": "en",
+  "duration_seconds": 30.059,
+  "model_size": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

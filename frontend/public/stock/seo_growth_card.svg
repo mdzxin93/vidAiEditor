@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="seoBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16181d"/>
+      <stop offset="100%" stop-color="#0e1014"/>
+    </linearGradient>
+    <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e5ff00" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e5ff00" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="540" height="800" fill="url(#seoBg)"/>
+
+  <!-- Window Header -->
+  <rect x="0" y="0" width="540" height="54" fill="#1b1e24"/>
+  <circle cx="36" cy="27" r="7" fill="#ff5f56"/>
+  <circle cx="58" cy="27" r="7" fill="#ffbd2e"/>
+  <circle cx="80" cy="27" r="7" fill="#27c93f"/>
+  <text x="270" y="34" text-anchor="middle" font-family="'Outfit', 'Inter', sans-serif" font-size="16" font-weight="500" fill="#8b949e">
+    analytics.google.com — Search Console
+  </text>
+
+  <!-- Header Stat Pill -->
+  <g transform="translate(45, 90)">
+    <rect width="450" height="100" rx="20" fill="#1e2229" stroke="#333b47" stroke-width="2"/>
+    <text x="28" y="44" font-family="'Outfit', sans-serif" font-size="16" font-weight="600" fill="#8b949e">ORGANIC SEARCH TRAFFIC</text>
+    <text x="28" y="82" font-family="'Outfit', sans-serif" font-size="36" font-weight="800" fill="#ffffff">+428.5%</text>
+    
+    <!-- Green Badge -->
+    <rect x="300" y="32" width="124" height="38" rx="19" fill="#166534"/>
+    <text x="362" y="57" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="16" font-weight="700" fill="#4ade80">▲ RANK #1</text>
+  </g>
+
+  <!-- Rising Metric Chart Area -->
+  <g transform="translate(45, 230)">
+    <!-- Chart Box -->
+    <rect width="450" height="320" rx="20" fill="#181a20" stroke="#2c323c" stroke-width="2"/>
+    
+    <!-- Grid horizontal lines -->
+    <line x1="30" y1="80" x2="420" y2="80" stroke="#2a2e38" stroke-dasharray="4 4" stroke-width="1.5"/>
+    <line x1="30" y1="160" x2="420" y2="160" stroke="#2a2e38" stroke-dasharray="4 4" stroke-width="1.5"/>
+    <line x1="30" y1="240" x2="420" y2="240" stroke="#2a2e38" stroke-dasharray="4 4" stroke-width="1.5"/>
+
+    <!-- Chart Bars in background -->
+    <rect x="50" y="210" width="34" height="60" rx="6" fill="#2d333f"/>
+    <rect x="110" y="170" width="34" height="100" rx="6" fill="#2d333f"/>
+    <rect x="170" y="140" width="34" height="130" rx="6" fill="#2d333f"/>
+    <rect x="230" y="100" width="34" height="170" rx="6" fill="#3b4353"/>
+    <rect x="290" y="70" width="34" height="200" rx="6" fill="#e5ff00" opacity="0.8"/>
+    <rect x="350" y="40" width="34" height="230" rx="6" fill="#e5ff00"/>
+
+    <!-- Area Gradient Path -->
+    <path d="M 67 220 Q 150 180 247 110 T 367 50 L 367 270 L 67 270 Z" fill="url(#chartFill)"/>
+    
+    <!-- Bold Trend Curve -->
+    <path d="M 67 220 Q 150 180 247 110 T 367 50" fill="none" stroke="#e5ff00" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="367" cy="50" r="10" fill="#e5ff00"/>
+    <circle cx="367" cy="50" r="18" fill="none" stroke="#e5ff00" stroke-width="2.5" opacity="0.6"/>
+  </g>
+
+  <!-- 3 Mini Metric Cards -->
+  <g transform="translate(45, 590)">
+    <g transform="translate(0, 0)">
+      <rect width="135" height="100" rx="16" fill="#1e2229" stroke="#333b47" stroke-width="1.5"/>
+      <text x="67" y="40" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="14" font-weight="600" fill="#8b949e">KEYWORDS</text>
+      <text x="67" y="75" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="24" font-weight="800" fill="#ffffff">2,840+</text>
+    </g>
+    <g transform="translate(157, 0)">
+      <rect width="135" height="100" rx="16" fill="#1e2229" stroke="#333b47" stroke-width="1.5"/>
+      <text x="67" y="40" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="14" font-weight="600" fill="#8b949e">CTR RATE</text>
+      <text x="67" y="75" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="24" font-weight="800" fill="#e5ff00">14.8%</text>
+    </g>
+    <g transform="translate(315, 0)">
+      <rect width="135" height="100" rx="16" fill="#1e2229" stroke="#333b47" stroke-width="1.5"/>
+      <text x="67" y="40" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="14" font-weight="600" fill="#8b949e">REVENUE</text>
+      <text x="67" y="75" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="24" font-weight="800" fill="#4ade80">$84.2K</text>
+    </g>
+  </g>
+
+  <!-- Accent bottom gradient line -->
+  <line x1="0" y1="796" x2="540" y2="796" stroke="#e5ff00" stroke-width="8"/>
+</svg>

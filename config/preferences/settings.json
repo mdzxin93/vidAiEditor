@@ -1,0 +1,6 @@
+{
+  "personalization_enabled": true,
+  "active_preset_id": "educational-explainer",
+  "preference_influence_weight": 0.85,
+  "auto_learn_from_approved_only": true
+}

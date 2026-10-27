@@ -1,0 +1,81 @@
+{
+  "style_id": "openmontage_cinematic_explainer_v1",
+  "reference": "uploaded 29.17s business explainer video",
+  "aspect_ratio": "9:16",
+  "primary_background": "#f6f6f4",
+  "talking_head": "preserve A-roll with contrast",
+  "accent": "#ff3441",
+  "caption": {
+    "font_preferences": [
+      "Inter Display ExtraBold",
+      "DejaVu Sans Bold"
+    ],
+    "color": "#ffffff",
+    "emphasis_color": "#ff3441",
+    "word_group_size": [
+      1,
+      4
+    ]
+  },
+  "editorial": {
+    "cuts": "narrative/semantic beat; mostly hard cuts",
+    "broll": "graphics when narrating an abstract idea",
+    "transition": "hard_cut default; subtle whoosh only when visually justified",
+    "max_consecutive_graphics_seconds": 4,
+    "a_roll_return": "after meaningful explainer beat"
+  },
+  "effects": [
+    {
+      "id": "hard_cut",
+      "duration_frames": 0
+    },
+    {
+      "id": "quick_punch_zoom",
+      "duration_frames": 8,
+      "scale": [
+        1,
+        1.08
+      ]
+    },
+    {
+      "id": "scale_pop",
+      "duration_frames": 7,
+      "scale": [
+        0.86,
+        1
+      ]
+    },
+    {
+      "id": "slide_in",
+      "duration_frames": 12,
+      "easing": "easeOutCubic"
+    },
+    {
+      "id": "red_keyword",
+      "duration_frames": 10,
+      "color": "#ff3441"
+    },
+    {
+      "id": "mask_reveal",
+      "duration_frames": 12
+    },
+    {
+      "id": "cross_dissolve",
+      "duration_frames": 8
+    },
+    {
+      "id": "whip_motion",
+      "duration_frames": 9,
+      "only_when_motivated": true
+    },
+    {
+      "id": "grid_explainer",
+      "duration_frames": 60
+    },
+    {
+      "id": "micro_shake",
+      "duration_frames": 5,
+      "max_offset_px": 5
+    }
+  ]
+}

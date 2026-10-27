@@ -1,0 +1,51 @@
+{
+  "style_id": "editorial_typography",
+  "name": "Editorial Typography",
+  "font_family": "Inter Display",
+  "font_weight": 800,
+  "font_color": "#FFFFFF",
+  "text_alignment": "center",
+  "letter_spacing_em": -0.06,
+  "background": "transparent",
+  "outline_enabled": false,
+  "shadow_enabled": true,
+  "shadow_style": "0 2px 4px rgba(0,0,0,0.15)",
+  "word_level_timing": true,
+  "emphasis_enabled": true,
+  "emphasis_scale": 1.95,
+  "emphasis_font_weight": 900,
+  "caption_grouping": {
+    "minimum_words": 1,
+    "maximum_words": 3,
+    "target_words_per_cue": 1,
+    "max_chars_per_line": 18,
+    "pause_threshold_ms": 220
+  },
+  "animation": {
+    "type": "subtle_scale_cut",
+    "duration_ms": 110,
+    "enter_frames": 2,
+    "exit_frames": 1,
+    "initial_scale": 0.96,
+    "final_scale": 1.0,
+    "exit_scale": 1.0,
+    "fade_in": false,
+    "fade_out": false,
+    "easing": "easeOutCubic"
+  },
+  "layout": {
+    "horizontal_alignment": "center",
+    "vertical_position": 0.38,
+    "top_emphasis_vertical_position": 0.16,
+    "safe_margin_percent": 6,
+    "max_width_percent": 94
+  },
+  "rendering": {
+    "resolution_adaptive": true,
+    "anti_aliasing": true,
+    "transparent_overlay": true,
+    "normal_size_pct_of_width": 0.082,
+    "emphasis_size_pct_of_width": 0.135,
+    "support_size_pct_of_width": 0.052
+  }
+}

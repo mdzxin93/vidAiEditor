@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import time
 from contextlib import asynccontextmanager, suppress
 from pathlib import Path
@@ -19,6 +20,8 @@ from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from backlot.state import PROJECTS_DIR, REPO_ROOT, list_projects, load_board_state, summarize_project
+
+logger = logging.getLogger(__name__)
 
 UI_DIR = Path(__file__).resolve().parent / "ui"
 THUMB_CACHE_DIR = REPO_ROOT / ".backlot" / "thumbs"
@@ -151,6 +154,11 @@ async def _watch_projects() -> None:
 @asynccontextmanager
 async def _lifespan(app: FastAPI):
     """Own and cleanly stop the project watcher with FastAPI's lifespan API."""
+    try:
+        from lib.api.jobs import job_manager
+        job_manager.store.mark_interrupted_jobs_on_startup()
+    except Exception as e:
+        logger.warning("Error running startup job audit: %s", e)
 
     task = asyncio.create_task(_watch_projects())
     app.state.watch_task = task
@@ -163,7 +171,38 @@ async def _lifespan(app: FastAPI):
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="Backlot", docs_url=None, redoc_url=None, lifespan=_lifespan)
+    app = FastAPI(title="OpenMontage", docs_url=None, redoc_url=None, lifespan=_lifespan)
+
+    # Security: Restrict CORS to local development and studio origins
+    from fastapi.middleware.cors import CORSMiddleware
+    allowed_origins = [
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=allowed_origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    # Security Middleware: Prevent cross-origin drive-by mutations from malicious external sites
+    @app.middleware("http")
+    async def localhost_security_guard(request: Request, call_next):
+        if request.method in ("POST", "PUT", "DELETE", "PATCH"):
+            origin = request.headers.get("origin")
+            if origin:
+                from urllib.parse import urlparse
+                parsed = urlparse(origin)
+                if parsed.hostname not in ("localhost", "127.0.0.1", "testserver"):
+                    from fastapi.responses import JSONResponse
+                    return JSONResponse(status_code=403, content={"detail": "Cross-origin mutation request blocked"})
+        return await call_next(request)
 
     # ---- API ----------------------------------------------------------
 
@@ -275,7 +314,24 @@ def create_app() -> FastAPI:
             raise HTTPException(status_code=404, detail="media not found")
         return FileResponse(target)
 
+    from lib.api.editor_routes import router as editor_router
+    from lib.api.preferences_routes import router as preferences_router
+    app.include_router(editor_router)
+    app.include_router(preferences_router)
+
     # ---- UI ------------------------------------------------------------
+
+    FRONTEND_DIST = REPO_ROOT / "frontend" / "dist"
+    if (FRONTEND_DIST / "assets").is_dir():
+        app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="editor_assets")
+
+    @app.get("/editor")
+    @app.get("/editor/{project_id:path}")
+    async def editor_app(project_id: str = "") -> HTMLResponse:
+        index_file = FRONTEND_DIST / "index.html"
+        if index_file.is_file():
+            return HTMLResponse(index_file.read_text(encoding="utf-8"))
+        return HTMLResponse("<h1>OpenMontage Professional Editor</h1><p>Building frontend assets...</p>")
 
     @app.get("/p/{project_id}")
     async def board_page(project_id: str) -> HTMLResponse:
@@ -286,7 +342,10 @@ def create_app() -> FastAPI:
         return _ui_html("board.html", ("board.css", "board.js"))
 
     @app.get("/")
-    async def library_page() -> HTMLResponse:
+    async def library_page(request: Request) -> HTMLResponse:
+        index_file = FRONTEND_DIST / "index.html"
+        if index_file.is_file() and request.query_params.get("view") != "library":
+            return HTMLResponse(index_file.read_text(encoding="utf-8"))
         return _ui_html("index.html", ("board.css", "library.js"))
 
     if UI_DIR.is_dir():
@@ -314,6 +373,14 @@ def _safe_project_dir(project_id: str) -> Path:
         raise HTTPException(status_code=400, detail="invalid project id")
     project_dir = PROJECTS_DIR / project_id
     if not project_dir.is_dir():
+        if project_id == "project_demo":
+            try:
+                from lib.checkpoint import init_project
+                init_project("project_demo", title="Demo Project", pipeline_type="animated-explainer")
+                if project_dir.is_dir():
+                    return project_dir
+            except Exception:
+                pass
         raise HTTPException(status_code=404, detail=f"unknown project: {project_id}")
     return project_dir
 

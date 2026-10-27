@@ -104,3 +104,27 @@ venv/
 
 # Local Wan / diffusers GPU environment
 .venv-wan/
+
+# Cache directories
+.cache/
+lib/.transcript_cache/
+
+# Large local models and weights
+models/
+*.safetensors
+*.bin
+
+# Large test media & fixtures
+media/sample/long_fixtures/
+lib/*.mp4
+lib/*.wav
+lib/*_transcript.json
+
+# Local sqlite database / WAL files
+*.db
+*.db-shm
+*.db-wal
+
+# Zip bundles & archives
+*.zip
+

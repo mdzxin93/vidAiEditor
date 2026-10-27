@@ -1,0 +1,42 @@
+[
+  {
+    "provider": "Pexels",
+    "type": "footage/photos",
+    "search": "business laptop office meeting creator desk clock entrepreneur",
+    "url": "https://www.pexels.com/videos/",
+    "license": "https://www.pexels.com/license/",
+    "note": "Can use in edits; do not redistribute as a standalone stock library"
+  },
+  {
+    "provider": "Mixkit",
+    "type": "video/sfx",
+    "search": "office tech laptop clock typing business",
+    "url": "https://mixkit.co/free-stock-video/",
+    "license": "https://mixkit.co/license/",
+    "note": "Verify individual item is Free License, not Restricted"
+  },
+  {
+    "provider": "Pixabay",
+    "type": "stock/video/sfx",
+    "search": "office clock animation workspace graphs",
+    "url": "https://pixabay.com/videos/",
+    "license": "https://pixabay.com/service/license-summary/",
+    "note": "No standalone redistribution"
+  },
+  {
+    "provider": "LottieFiles",
+    "type": "animation",
+    "search": "clock business money illustration growth",
+    "url": "https://lottiefiles.com/",
+    "license": "https://lottiefiles.com/page/license",
+    "note": "Do not bulk compile third-party animations into competing asset library"
+  },
+  {
+    "provider": "Lucide",
+    "type": "icons",
+    "search": "clock/chart/briefcase/phone/target",
+    "url": "https://lucide.dev/",
+    "license": "https://github.com/lucide-icons/lucide/blob/main/LICENSE",
+    "note": "Include license notice when distributing icons"
+  }
+]
