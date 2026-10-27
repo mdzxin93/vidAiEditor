@@ -124,21 +124,7 @@ def main() -> int:
     except Exception as e:
         logger.warning("Could not initialize custom storage paths: %s", e)
 
-    # 4. Check Frontend Production Bundle
-    frontend_dist = REPO_ROOT / "frontend" / "dist"
-    if not (frontend_dist / "index.html").is_file():
-        print("[WARN] React Studio production bundle not detected in frontend/dist.")
-        print("Building frontend assets with Vite...")
-        npm_cmd = shutil.which("npm") or "npm"
-        try:
-            subprocess.run([npm_cmd, "run", "build"], cwd=REPO_ROOT / "frontend", check=True)
-            print("[OK] Frontend bundle built successfully.")
-        except Exception as e:
-            print(f"[ERROR] Failed to build frontend assets: {e}")
-            input("\nPress Enter to exit...")
-            return 1
-
-    # 5. Start Backend Process
+    # 4. Start Backend Process
     print(f"\n[INFO] Starting OpenMontage server on {SERVER_URL}...")
     server_cmd = [
         sys.executable,

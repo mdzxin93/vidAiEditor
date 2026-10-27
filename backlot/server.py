@@ -321,18 +321,6 @@ def create_app() -> FastAPI:
 
     # ---- UI ------------------------------------------------------------
 
-    FRONTEND_DIST = REPO_ROOT / "frontend" / "dist"
-    if (FRONTEND_DIST / "assets").is_dir():
-        app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="editor_assets")
-
-    @app.get("/editor")
-    @app.get("/editor/{project_id:path}")
-    async def editor_app(project_id: str = "") -> HTMLResponse:
-        index_file = FRONTEND_DIST / "index.html"
-        if index_file.is_file():
-            return HTMLResponse(index_file.read_text(encoding="utf-8"))
-        return HTMLResponse("<h1>OpenMontage Professional Editor</h1><p>Building frontend assets...</p>")
-
     @app.get("/p/{project_id}")
     async def board_page(project_id: str) -> HTMLResponse:
         return _ui_html("board.html", ("board.css", "board.js"))
@@ -342,10 +330,7 @@ def create_app() -> FastAPI:
         return _ui_html("board.html", ("board.css", "board.js"))
 
     @app.get("/")
-    async def library_page(request: Request) -> HTMLResponse:
-        index_file = FRONTEND_DIST / "index.html"
-        if index_file.is_file() and request.query_params.get("view") != "library":
-            return HTMLResponse(index_file.read_text(encoding="utf-8"))
+    async def library_page() -> HTMLResponse:
         return _ui_html("index.html", ("board.css", "library.js"))
 
     if UI_DIR.is_dir():
